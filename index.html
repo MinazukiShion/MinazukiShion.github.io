@@ -1,122 +1,157 @@
-<!-- =============================
- FILE: index.html
-============================= -->
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>水無月紫苑｜Mizunashi Shion</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>水無月紫苑 / Shion Minazuki</title>
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans", system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #111;
+      line-height: 1.7;
+    }
+    header {
+      border-bottom: 1px solid #ccc;
+      padding: 1.5rem;
+    }
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    nav a {
+      margin-right: 1rem;
+      text-decoration: none;
+      color: #111;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .lang {
+      float: right;
+    }
+    .lang button {
+      margin-left: 0.5rem;
+      background: none;
+      border: 1px solid #aaa;
+      padding: 0.2rem 0.6rem;
+      cursor: pointer;
+    }
+    main {
+      padding: 2rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    footer {
+      border-top: 1px solid #ccc;
+      padding: 1rem 1.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
 
-<main class="container">
+<header>
+  <div class="lang">
+    <button onclick="setLang('zh')">中</button>
+    <button onclick="setLang('ja')">日</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+  <h1 data-i18n="name"></h1>
+  <nav>
+    <a href="#home" data-i18n="nav_home"></a>
+    <a href="#nonfiction" data-i18n="nav_nonfiction"></a>
+    <a href="#fiction" data-i18n="nav_fiction"></a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h1>水無月紫苑</h1>
-    <p class="subtitle">
-       東アジア出身のトランスジェンダー女性<br>
-       嵐桜政策研究会 共同創設者<br>
-       読書｜リアルタイムストラテジーゲーム｜カレー｜ラーメン｜天ぷら｜OC創作｜建築｜グラフィックデザイン｜ジェンダー理論｜トランスジェンダー女性<br> 
-     水無月紫苑 公式ホームページ
-    </p>
+<main>
+  <section id="home">
+    <p data-i18n="intro"></p>
   </section>
 
-  <section class="about">
-    <p>
-      私は水無月紫苑です。東アジア出身のトランスジェンダー女性であり、
-      嵐桜政策研究会の創設者の一人でもあります。
-    </p>
-    <p>
-      私の研究と創作は、ジェンダー、政治、文化、そしてエコロジーの交差点に位置し、
-      特に東アジアの文脈における反植民地主義とマルクス主義に焦点を当てています。
-    </p>
-    <p>
-      私の政治的立場は、多くの西洋の進歩的思潮とは異なって見えるかもしれません。
-      それでも私は、真の多元主義とは、私たちアジアの子どもたちが、
-      自らの生活様式や文化風土を誇り、祝福することをも包み込むものであると信じています。
-    </p>
-    <p>
-      そのような幸福と安らぎが実現し、世界へと伝わっていくよう、
-      私はそのための仕事を続けています。
-    </p>
+  <section id="nonfiction">
+    <h2 data-i18n="nonfiction_title"></h2>
+    <h3 data-i18n="policy_title"></h3>
+    <p data-i18n="policy_desc"></p>
+
+    <h3 data-i18n="research_title"></h3>
+    <p data-i18n="research_desc"></p>
   </section>
 
-  <section class="notes">
-    <h2>Notes</h2>
-    <p>
-      ここには、時間に追われずに書いた思考や記録を、
-      少しずつ置いていきます。
-    </p>
+  <section id="fiction">
+    <h2 data-i18n="fiction_title"></h2>
+    <p data-i18n="fiction_desc"></p>
   </section>
-
-  <section class="links">
-    <h2>Links</h2>
-    <ul>
-      <li>
-        <a href="https://bsky.app/profile/shionminazuki.bsky.social" target="_blank">
-          Bluesky 公式アカウント
-        </a>
-      </li>
-    </ul>
-  </section>
-
 </main>
+
+<footer>
+  <p>© 水無月紫苑 / Shion Minazuki</p>
+</footer>
+
+<script>
+const text = {
+  zh: {
+    name: "水無月紫苑 / Shion Minazuki",
+    nav_home: "首页",
+    nav_nonfiction: "Non-Fiction",
+    nav_fiction: "Fiction",
+    intro: "我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。我的研究与创作关注性别、政治、文化和生态，尤其聚焦于东亚语境中的反殖民主义与马克思主义。",
+    nonfiction_title: "Non-Fiction",
+    policy_title: "水無月紫苑的政策",
+    policy_desc: "这一分区集中呈现我对于现实政治、制度设计与公共议题的立场与主张。它并非宣言，而是对现实的持续回应。",
+    research_title: "水無月紫苑的研究",
+    research_desc: "这一分区收录我的理论研究、概念分析与长文写作，关注性别、政治思想史与东亚社会结构。",
+    fiction_title: "Fiction / OC 创作",
+    fiction_desc: "这里是我的原创世界与角色创作。它们并非现实的逃避，而是另一种形式的真实。"
+  },
+  ja: {
+    name: "水無月紫苑 / Shion Minazuki",
+    nav_home: "ホーム",
+    nav_nonfiction: "ノンフィクション",
+    nav_fiction: "フィクション",
+    intro: "私は水無月紫苑、東アジア出身のトランスジェンダー女性であり、嵐桜政策研究会の創設者の一人です。私の研究と創作は、ジェンダー、政治、文化、エコロジーを横断し、とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。",
+    nonfiction_title: "ノンフィクション",
+    policy_title: "水無月紫苑の政策",
+    policy_desc: "このセクションでは、現実政治や制度設計、公共課題に対する私の立場と思考を記録しています。これは宣言ではなく、現実への継続的な応答です。",
+    research_title: "水無月紫苑の研究",
+    research_desc: "このセクションには、理論研究、概念分析、長文エッセイを収録しています。ジェンダー、政治思想史、東アジア社会構造を主題とします。",
+    fiction_title: "フィクション / OC創作",
+    fiction_desc: "ここには私のオリジナル世界観とキャラクター創作があります。それは現実からの逃避ではなく、もう一つの現実です。"
+  },
+  en: {
+    name: "Shion Minazuki",
+    nav_home: "Home",
+    nav_nonfiction: "Non-Fiction",
+    nav_fiction: "Fiction",
+    intro: "I am Shion Minazuki, a transgender woman from East Asia and one of the founders of the Ranzakura Policy Research Group. My work explores gender, politics, culture, and ecology, with a particular focus on anti-colonialism and Marxism in East Asian contexts.",
+    nonfiction_title: "Non-Fiction",
+    policy_title: "Policies of Shion Minazuki",
+    policy_desc: "This section presents my positions on real-world politics, institutional design, and public issues. It is not a manifesto, but an ongoing response to reality.",
+    research_title: "Research of Shion Minazuki",
+    research_desc: "This section contains my theoretical research, conceptual analysis, and long-form writing, focusing on gender, political thought, and East Asian social structures.",
+    fiction_title: "Fiction / Original Creations",
+    fiction_desc: "This is where my original worlds and characters live. They are not an escape from reality, but another form of it."
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = text[lang][key];
+  });
+}
+
+setLang('zh');
+</script>
 
 </body>
 </html>
-
-
-<!-- =============================
- FILE: style.css
-============================= -->
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Hiragino Sans", "Yu Gothic", sans-serif;
-  background-color: #f7f7f7;
-  color: #222;
-}
-
-.container {
-  max-width: 720px;
-  margin: 80px auto;
-  padding: 0 20px;
-  line-height: 1.9;
-}
-
-h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.2em;
-}
-
-.subtitle {
-  color: #555;
-  font-size: 0.95em;
-}
-
-h2 {
-  margin-top: 60px;
-  font-size: 1.3em;
-}
-
-p {
-  margin-bottom: 1.2em;
-}
-
-a {
-  color: #222;
-  text-decoration: underline;
-}
-
-a:hover {
-  opacity: 0.7;
-}
-
-
-<!-- =============================
- FILE: script.js (optional)
- 現在は未使用。必要になったら読み込み可。
-============================= -->
-// Reserved for future interactive features
