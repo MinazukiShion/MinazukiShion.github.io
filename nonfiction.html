@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>研究｜水無月紫苑</title>
+  <title>非虚构｜水無月紫苑</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
@@ -47,45 +47,26 @@
 <main>
 
   <section>
-    <p data-lang="zh">我的研究位于性别、政治思想史与东亚社会结构的交汇处，尤其关注反殖民语境下的马克思主义与性别理论。</p>
-    <p data-lang="ja">私の研究は、ジェンダー、政治思想史、東アジア社会構造の交差点に位置しています。特に反植民地主義文脈におけるマルクス主義とジェンダー理論を扱います。</p>
-    <p data-lang="en">My research lies at the intersection of gender studies, political thought, and East Asian social structures, with a focus on Marxism and gender theory in anti-colonial contexts.</p>
+    <p data-lang="zh">这里收录我对现实政治与思想问题的非虚构写作。它们并非宣言，而是对现实的持续回应。</p>
+    <p data-lang="ja">ここには、現実の政治や思想問題に対する私のノンフィクション作品を収録しています。それは宣言ではなく、現実への継続的な応答です。</p>
+    <p data-lang="en">This section contains my non-fiction work on politics and thought. These writings are not manifestos, but ongoing responses to reality.</p>
   </section>
 
   <section>
     <h2>
-      <span data-lang="zh">研究列表</span>
-      <span data-lang="ja">研究一覧</span>
-      <span data-lang="en">Research</span>
+      <span data-lang="zh">分类</span>
+      <span data-lang="ja">カテゴリ</span>
+      <span data-lang="en">Categories</span>
     </h2>
-    <div class="post-list" id="research-list"></div>
+    <ul>
+      <li><a href="policy.html" data-lang="zh">政策</a><a href="policy.html" data-lang="ja">政策</a><a href="policy.html" data-lang="en">Policy</a></li>
+      <li><a href="research.html" data-lang="zh">研究</a><a href="research.html" data-lang="ja">研究</a><a href="research.html" data-lang="en">Research</a></li>
+    </ul>
   </section>
 
 </main>
 
 <footer>© 水無月紫苑</footer>
-
-<script src="research-content.js"></script>
-<script>
-function renderContent(lang) {
-  const container = document.getElementById('research-list');
-  if (!container) return;
-  const tags = window.RESEARCH_TAG_LABELS || {};
-  const articles = window.RESEARCH_ARTICLES || [];
-
-  container.innerHTML = articles.map(a => {
-    const tag   = tags[a.tag]?.[lang] ?? a.tag;
-    const title = (a[lang] || a.zh).title;
-    return `<article class="post-item">
-      <div class="post-meta">
-        <span class="post-date">${a.date}</span>
-        <span class="post-tag">${tag}</span>
-      </div>
-      <a class="post-title" href="article.html?id=${a.id}&type=research">${title}</a>
-    </article>`;
-  }).join('');
-}
-</script>
 <script src="lang.js"></script>
 </body>
 </html>
