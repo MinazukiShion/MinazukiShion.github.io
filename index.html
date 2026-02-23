@@ -10,40 +10,17 @@
 <body>
 
 <header>
-  <div class="lang-switcher">
-    <button class="lang-current">
-      <span class="lang-flag">🇨🇳</span>
-      <span class="lang-code">ZH</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="lang-dropdown">
-      <button class="lang-option" data-lang-code="zh">
-        <span class="lang-flag">🇨🇳</span>
-        <span class="lang-label">中文</span>
-        <span class="lang-code">ZH</span>
-      </button>
-      <button class="lang-option" data-lang-code="ja">
-        <span class="lang-flag">🇯🇵</span>
-        <span class="lang-label">日本語</span>
-        <span class="lang-code">JA</span>
-      </button>
-      <button class="lang-option" data-lang-code="en">
-        <span class="lang-flag">🇬🇧</span>
-        <span class="lang-label">English</span>
-        <span class="lang-code">EN</span>
-      </button>
-    </div>
+  <div class="site-title">
+    <a href="index.html">
+      <span data-lang="zh">水無月紫苑</span>
+      <span data-lang="ja">水無月紫苑</span>
+      <span data-lang="en">Shion Minazuki</span>
+    </a>
   </div>
-
-  <h1>
-    <span data-lang="zh">水無月紫苑</span>
-    <span data-lang="ja">水無月 紫苑</span>
-    <span data-lang="en">Shion Minazuki</span>
-  </h1>
 
   <nav class="main-nav">
     <a href="index.html" data-nav="home">首页</a>
-
+    
     <div class="dropdown">
       <a href="nonfiction.html" class="dropbtn" data-nav="nonfiction">非虚构</a>
       <div class="dropdown-content">
@@ -51,9 +28,18 @@
         <a href="research.html" data-nav="research">研究</a>
       </div>
     </div>
-
-    <a href="fiction.html" data-nav="fiction">虚构创作</a>
+    
+    <a href="fiction.html" data-nav="fiction">虚构</a>
   </nav>
+
+  <div class="lang-switcher">
+    <button class="lang-current">中文 <span class="arrow">▼</span></button>
+    <div class="lang-dropdown">
+      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文</button>
+      <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語</button>
+      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English</button>
+    </div>
+  </div>
 </header>
 
 <main>
