@@ -1,23 +1,23 @@
 /* ============================================
-   水無月紫苑 — Compact Academic Style
+   水無月紫苑 — Academic Style
    ============================================ */
 
 :root {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #12121a;
-  --bg-tertiary: #1a1a24;
-  --text-primary: #e8e6e1;
-  --text-secondary: #888;
+  --bg-primary:    #0a0a0f;
+  --bg-secondary:  #12121a;
+  --bg-tertiary:   #1a1a24;
+  --text-primary:  #e8e6e1;
+  --text-secondary:#888;
   --accent-purple: #7c3aed;
-  --accent-red: #dc2626;
-  --accent-gold: #d4a574;
-  --border-color: #2a2a35;
+  --accent-red:    #dc2626;
+  --accent-gold:   #d4a574;
+  --border-color:  #2a2a35;
 
-  --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  --font-en: "Georgia", "Times New Roman", serif;
-  --font-mincho: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", "ＭＳ 明朝", serif;
-  --font-sans: var(--font-zh);
+  --font-zh:     "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-ja:     "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-en:     "Georgia", "Times New Roman", serif;
+  --font-mincho: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", serif;
+  --font-sans:   var(--font-zh);
 }
 
 :lang(zh) { --font-sans: var(--font-zh); }
@@ -25,15 +25,11 @@
 :lang(en) { --font-sans: var(--font-en); }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  font-size: 15px;
-}
+html { scroll-behavior: smooth; font-size: 15px; }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
+  background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.75;
   min-height: 100vh;
@@ -41,75 +37,82 @@ body {
   flex-direction: column;
 }
 
-::selection {
-  background: var(--accent-purple);
-  color: white;
-}
+::selection { background: var(--accent-purple); color: white; }
 
 /* ============================================
    Typography
    ============================================ */
 
-h1 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
 h2 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2.5rem 0 1rem 0;
+  font-family: var(--font-mincho);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin: 2.5rem 0 1rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border-color);
 }
 
-p {
-  margin-bottom: 1.25rem;
-  line-height: 1.8;
-  color: var(--text-primary);
+h3 {
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 2rem 0 0.75rem;
 }
 
-a {
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
+p { margin-bottom: 1.25rem; line-height: 1.8; }
+
+a { color: var(--text-primary); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-purple); }
+
+ul { list-style: none; padding: 0; margin: 1.25rem 0; }
+ul li { margin-bottom: 0.75rem; padding-left: 1.25rem; position: relative; }
+ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent-red); font-weight: 300; }
+ul li a { color: var(--accent-gold); }
+ul li a:hover { color: var(--accent-purple); }
+
+blockquote {
+  border-left: 2px solid var(--accent-purple);
+  padding-left: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
 }
 
-a:hover {
-  color: var(--accent-purple);
+hr { border: none; border-top: 1px solid var(--border-color); margin: 2rem 0; }
+
+code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.85em;
+  background: var(--bg-secondary);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
 }
 
 /* ============================================
-   Header
+   站名区域
    ============================================ */
 
-/* 站名区域 — 独立于导航之上 */
 .site-header-top {
   background: var(--bg-primary);
-  padding: 1.5rem 2rem 1.1rem;
+  padding: 1.6rem 2rem 1.2rem;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
 }
 
-.site-title {
-  display: inline-block;
-  position: relative;
-}
+.site-title { display: inline-block; }
 
 .site-title a {
   font-family: var(--font-mincho);
   font-size: 2rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--text-primary);
-  text-decoration: none;
   display: block;
   position: relative;
 }
 
-/* 下划线：宽度与文字等宽，hover 时从左刷出 */
 .site-title a::after {
   content: '';
   position: absolute;
@@ -120,14 +123,16 @@ a:hover {
   background: var(--accent-purple);
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.site-title a:hover::after {
-  transform: scaleX(1);
-}
+.site-title a:hover { color: var(--text-primary); }
+.site-title a:hover::after { transform: scaleX(1); }
 
-/* 导航栏 — 独立一行，sticky */
+/* ============================================
+   导航栏
+   ============================================ */
+
 header {
   position: sticky;
   top: 0;
@@ -138,12 +143,7 @@ header {
   height: 3rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-
-/* ============================================
-   Navigation
-   ============================================ */
 
 .main-nav {
   display: flex;
@@ -155,35 +155,28 @@ header {
 }
 
 nav a {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
   padding: 0.5rem 0;
   position: relative;
-  font-weight: 400;
-  transition: color 0.2s ease;
+  transition: color 0.2s;
 }
 
-nav a:hover {
-  color: var(--text-primary);
-}
+nav a:hover { color: var(--text-primary); }
 
 nav a::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
   background: var(--accent-red);
   transition: width 0.15s ease;
 }
 
-nav a:hover::after {
-  width: 100%;
-}
+nav a:hover::after { width: 100%; }
 
 /* ============================================
-   Dropdown (hover-based with invisible bridge)
+   Dropdown
    ============================================ */
 
 .dropdown {
@@ -192,16 +185,8 @@ nav a:hover::after {
   margin-bottom: -1rem;
 }
 
-.dropbtn {
-  cursor: pointer;
-  user-select: none;
-}
-
-.dropbtn::after {
-  content: ' ▾';
-  font-size: 0.7em;
-  opacity: 0.6;
-}
+.dropbtn { cursor: pointer; user-select: none; }
+.dropbtn::after { content: ' ▾'; font-size: 0.7em; opacity: 0.6; }
 
 .dropdown-content {
   position: absolute;
@@ -214,31 +199,23 @@ nav a:hover::after {
   padding: 0.5rem 0;
   border-radius: 2px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-
   visibility: hidden;
   opacity: 0;
-  transition:
-    visibility 0s linear 0.15s,
-    opacity 0.15s ease,
-    transform 0.15s ease;
+  transition: visibility 0s linear 0.15s, opacity 0.15s, transform 0.15s;
   pointer-events: none;
 }
 
 .dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
+  visibility: visible; opacity: 1;
   transform: translateX(-50%) translateY(0);
   transition-delay: 0s;
   pointer-events: auto;
 }
 
-/* Invisible bridge */
 .dropdown::after {
   content: '';
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: 100%; left: 0; right: 0;
   height: 1rem;
   background: transparent;
 }
@@ -249,7 +226,7 @@ nav a:hover::after {
   font-size: 0.85rem;
   color: var(--text-secondary);
   white-space: nowrap;
-  transition: all 0.15s ease;
+  transition: all 0.15s;
 }
 
 .dropdown-content a:hover {
@@ -259,14 +236,20 @@ nav a:hover::after {
 }
 
 /* ============================================
-   Language Switcher (hover-based with invisible bridge)
+   Language Switcher
    ============================================ */
 
 .lang-switcher {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lang-switcher-inner {
   position: relative;
   padding-bottom: 1rem;
   margin-bottom: -1rem;
-  flex-shrink: 0;
 }
 
 .lang-current {
@@ -280,28 +263,22 @@ nav a:hover::after {
   cursor: pointer;
   font-size: 0.8rem;
   border-radius: 2px;
-  transition: all 0.15s ease;
+  transition: all 0.15s;
   user-select: none;
+  white-space: nowrap;
 }
 
-.lang-current:hover,
-.lang-switcher:hover .lang-current {
+.lang-switcher-inner:hover .lang-current {
   border-color: var(--accent-purple);
   color: var(--text-primary);
 }
 
-.lang-current:active {
-  transform: scale(0.97);
-}
-
 .lang-current .arrow {
   font-size: 0.6rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s;
 }
 
-.lang-switcher:hover .arrow {
-  transform: rotate(180deg);
-}
+.lang-switcher-inner:hover .arrow { transform: rotate(180deg); }
 
 .lang-dropdown {
   position: absolute;
@@ -313,32 +290,24 @@ nav a:hover::after {
   min-width: 130px;
   padding: 0.25rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-
   visibility: hidden;
   opacity: 0;
   transform: translateY(-5px);
-  transition:
-    visibility 0s linear 0.15s,
-    opacity 0.15s ease,
-    transform 0.15s ease;
+  transition: visibility 0s linear 0.15s, opacity 0.15s, transform 0.15s;
   pointer-events: none;
 }
 
-.lang-switcher:hover .lang-dropdown {
-  visibility: visible;
-  opacity: 1;
+.lang-switcher-inner:hover .lang-dropdown {
+  visibility: visible; opacity: 1;
   transform: translateY(0);
   transition-delay: 0s;
   pointer-events: auto;
 }
 
-/* Invisible bridge */
-.lang-switcher::after {
+.lang-switcher-inner::after {
   content: '';
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: 100%; left: 0; right: 0;
   height: 1rem;
   background: transparent;
 }
@@ -356,30 +325,16 @@ nav a:hover::after {
   font-size: 0.82rem;
   text-align: left;
   border-radius: 2px;
-  transition: all 0.1s ease;
+  transition: all 0.1s;
 }
 
-.lang-option:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.lang-option.active {
-  color: var(--accent-purple);
-  font-weight: 500;
-}
-
-.lang-option .check {
-  opacity: 0;
-  font-size: 0.75rem;
-}
-
-.lang-option.active .check {
-  opacity: 1;
-}
+.lang-option:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.lang-option.active { color: var(--accent-purple); font-weight: 500; }
+.lang-option .check { opacity: 0; font-size: 0.75rem; }
+.lang-option.active .check { opacity: 1; }
 
 /* ============================================
-   Main Content
+   Main / Sections
    ============================================ */
 
 main {
@@ -390,13 +345,9 @@ main {
   width: 100%;
 }
 
-section {
-  margin-bottom: 2.5rem;
-}
+section { margin-bottom: 2.5rem; }
 
-/* Poetic left-border for greeting section */
-section:nth-of-type(2) p[data-lang="zh"],
-section:nth-of-type(2) p[data-lang="ja"],
+/* 问候板块左紫线 */
 section:nth-of-type(2) div[data-lang="zh"] p,
 section:nth-of-type(2) div[data-lang="ja"] p {
   color: var(--text-secondary);
@@ -407,78 +358,10 @@ section:nth-of-type(2) div[data-lang="ja"] p {
 }
 
 /* ============================================
-   Lists
+   Post List（首页最近更新 / 各列表页）
    ============================================ */
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.25rem 0;
-}
-
-ul li {
-  margin-bottom: 0.75rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 300;
-}
-
-ul li a {
-  color: var(--accent-gold);
-}
-
-ul li a:hover {
-  color: var(--accent-purple);
-}
-
-/* ============================================
-   Footer
-   ============================================ */
-
-footer {
-  border-top: 1px solid var(--border-color);
-  padding: 1.5rem 2rem;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  margin-top: auto;
-}
-
-/* ============================================
-   Language Content Visibility
-   ============================================ */
-
-[data-lang] {
-  display: none;
-  animation: fadeIn 0.25s ease;
-}
-
-[data-lang].active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ============================================
-   Post / Content List
-   ============================================ */
-
-.post-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
+.post-list { display: flex; flex-direction: column; }
 
 .post-item {
   display: flex;
@@ -488,20 +371,13 @@ footer {
   border-bottom: 1px solid var(--border-color);
 }
 
-.post-item:first-child {
-  border-top: 1px solid var(--border-color);
-}
+.post-item:first-child { border-top: 1px solid var(--border-color); }
 
-.post-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
+.post-meta { display: flex; align-items: center; gap: 0.75rem; }
 
 .post-date {
   font-size: 0.78rem;
   color: var(--text-secondary);
-  font-variant-numeric: tabular-nums;
   letter-spacing: 0.03em;
 }
 
@@ -518,386 +394,87 @@ footer {
   font-size: 0.95rem;
   color: var(--text-primary);
   line-height: 1.5;
-  text-decoration: none;
-  transition: color 0.15s ease;
   display: block;
+  transition: color 0.15s;
 }
 
-.post-title:hover {
-  color: var(--accent-purple);
-}
-
-.post-title [data-lang] {
-  animation: none;
-}
-/* ============================================
-   Responsive
-   ============================================ */
-
-@media (max-width: 768px) {
-  header {
-    padding: 0 1rem;
-    height: auto;
-    min-height: 2.75rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
-  .main-nav {
-    position: static;
-    transform: none;
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 0.25rem;
-  }
-
-  .dropdown {
-    padding-bottom: 0.5rem;
-    margin-bottom: -0.5rem;
-  }
-
-  main {
-    padding: 1.5rem 1rem 3rem;
-  }
-}
+.post-title:hover { color: var(--accent-purple); }
 
 /* ============================================
-   Scrollbar
+   Article Page（文章正文）
    ============================================ */
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); }header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-color);
-  padding: 0 2rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+.article-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); }
 
-.site-title {
-  flex-shrink: 0;
-}
+.article-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
 
-.site-title a {
+.article-title {
   font-family: var(--font-mincho);
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.site-title a:hover {
-  color: var(--accent-purple);
-}
-
-/* ============================================
-   Navigation
-   ============================================ */
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-nav a {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  padding: 0.5rem 0;
-  position: relative;
-  font-weight: 400;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
+  letter-spacing: 0.05em;
+  line-height: 1.4;
   color: var(--text-primary);
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-red);
-  transition: width 0.15s ease;
-}
+.article-body { font-size: 0.97rem; line-height: 1.9; }
 
-nav a:hover::after {
-  width: 100%;
-}
+.article-body h2 { font-size: 1.05rem; margin-top: 2.5rem; }
+.article-body h3 { font-size: 0.97rem; margin-top: 1.8rem; }
+.article-body p { margin-bottom: 1.3rem; color: var(--text-secondary); }
+.article-body p:first-child { color: var(--text-primary); }
 
-/* ============================================
-   Dropdown (hover-based with invisible bridge)
-   ============================================ */
-
-.dropdown {
-  position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: -1rem;
-}
-
-.dropbtn {
-  cursor: pointer;
-  user-select: none;
-}
-
-.dropbtn::after {
-  content: ' ▾';
-  font-size: 0.7em;
-  opacity: 0.6;
-}
-
-.dropdown-content {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(-5px);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  min-width: 160px;
-  padding: 0.5rem 0;
-  border-radius: 2px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-
-  visibility: hidden;
-  opacity: 0;
-  transition:
-    visibility 0s linear 0.15s,
-    opacity 0.15s ease,
-    transform 0.15s ease;
-  pointer-events: none;
-}
-
-.dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-  transition-delay: 0s;
-  pointer-events: auto;
-}
-
-/* Invisible bridge */
-.dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 1rem;
-  background: transparent;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  transition: all 0.15s ease;
-}
-
-.dropdown-content a:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  padding-left: 1.5rem;
-}
-
-/* ============================================
-   Language Switcher (hover-based with invisible bridge)
-   ============================================ */
-
-.lang-switcher {
-  position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: -1rem;
-  flex-shrink: 0;
-}
-
-.lang-current {
-  display: flex;
+.article-back {
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 0.35rem 0.75rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  border-radius: 2px;
-  transition: all 0.15s ease;
-  user-select: none;
-}
-
-.lang-current:hover,
-.lang-switcher:hover .lang-current {
-  border-color: var(--accent-purple);
-  color: var(--text-primary);
-}
-
-.lang-current:active {
-  transform: scale(0.97);
-}
-
-.lang-current .arrow {
-  font-size: 0.6rem;
-  transition: transform 0.2s ease;
-}
-
-.lang-switcher:hover .arrow {
-  transform: rotate(180deg);
-}
-
-.lang-dropdown {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 2px;
-  min-width: 130px;
-  padding: 0.25rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(-5px);
-  transition:
-    visibility 0s linear 0.15s,
-    opacity 0.15s ease,
-    transform 0.15s ease;
-  pointer-events: none;
-}
-
-.lang-switcher:hover .lang-dropdown {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0s;
-  pointer-events: auto;
-}
-
-/* Invisible bridge */
-.lang-switcher::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: 1rem;
-  background: transparent;
-}
-
-.lang-option {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.6rem 0.9rem;
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
   font-size: 0.82rem;
-  text-align: left;
-  border-radius: 2px;
-  transition: all 0.1s ease;
-}
-
-.lang-option:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.lang-option.active {
-  color: var(--accent-purple);
-  font-weight: 500;
-}
-
-.lang-option .check {
-  opacity: 0;
-  font-size: 0.75rem;
-}
-
-.lang-option.active .check {
-  opacity: 1;
-}
-
-/* ============================================
-   Main Content
-   ============================================ */
-
-main {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem 5rem;
-  flex: 1;
-  width: 100%;
-}
-
-section {
-  margin-bottom: 2.5rem;
-}
-
-/* Poetic left-border for greeting section */
-section:nth-of-type(2) p[data-lang="zh"],
-section:nth-of-type(2) p[data-lang="ja"],
-section:nth-of-type(2) div[data-lang="zh"] p,
-section:nth-of-type(2) div[data-lang="ja"] p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--accent-purple);
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  transition: color 0.15s;
+}
+
+.article-back:hover { color: var(--accent-purple); }
+
+/* ============================================
+   Policy 政见放送
+   ============================================ */
+
+.policy-list { display: flex; flex-direction: column; }
+
+.policy-item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.policy-item:first-child { border-top: 1px solid var(--border-color); }
+
+.policy-item-title {
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.policy-item-body {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin: 0;
 }
 
 /* ============================================
-   Lists
+   Language Content Visibility
    ============================================ */
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.25rem 0;
-}
+[data-lang] { display: none; animation: fadeIn 0.25s ease; }
+[data-lang].active { display: block; }
 
-ul li {
-  margin-bottom: 0.75rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-  font-weight: 300;
-}
-
-ul li a {
-  color: var(--accent-gold);
-}
-
-ul li a:hover {
-  color: var(--accent-purple);
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
@@ -914,95 +491,18 @@ footer {
 }
 
 /* ============================================
-   Language Content Visibility
-   ============================================ */
-
-[data-lang] {
-  display: none;
-  animation: fadeIn 0.25s ease;
-}
-
-[data-lang].active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-
-/* ============================================
-   Post / Content List
-   ============================================ */
-
-.post-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.post-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.post-item:first-child {
-  border-top: 1px solid var(--border-color);
-}
-
-.post-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.post-date {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.03em;
-}
-
-.post-tag {
-  font-size: 0.72rem;
-  color: var(--accent-purple);
-  border: 1px solid var(--accent-purple);
-  padding: 0.1rem 0.5rem;
-  border-radius: 1px;
-  letter-spacing: 0.05em;
-}
-
-.post-title {
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  line-height: 1.5;
-  text-decoration: none;
-  transition: color 0.15s ease;
-  display: block;
-}
-
-.post-title:hover {
-  color: var(--accent-purple);
-}
-
-.post-title [data-lang] {
-  animation: none;
-}
-/* ============================================
    Responsive
    ============================================ */
 
 @media (max-width: 768px) {
+  .site-header-top { padding: 1.2rem 1rem 1rem; }
+  .site-title a { font-size: 1.5rem; }
+
   header {
     padding: 0 1rem;
     height: auto;
     min-height: 2.75rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
@@ -1010,21 +510,19 @@ footer {
   .main-nav {
     position: static;
     transform: none;
-    order: 3;
-    width: 100%;
-    justify-content: center;
     gap: 1.5rem;
-    margin-top: 0.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
 
-  .dropdown {
-    padding-bottom: 0.5rem;
-    margin-bottom: -0.5rem;
+  .lang-switcher {
+    position: static;
+    transform: none;
+    margin-left: auto;
   }
 
-  main {
-    padding: 1.5rem 1rem 3rem;
-  }
+  main { padding: 1.5rem 1rem 3rem; }
 }
 
 /* ============================================
