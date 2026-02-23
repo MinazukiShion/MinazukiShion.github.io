@@ -55,3 +55,38 @@ footer {
   font-size: 0.9rem;
   color: #555;
 }
+
+.main-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 1.8rem;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.5rem 0.8rem;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
