@@ -1,8 +1,9 @@
 /* ============================================
    水無月紫苑 - Academic Neo-Brutalism Style
+   Language-Adaptive Edition
    ============================================ */
 
-/* CSS Variables for theming */
+/* CSS Variables */
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
@@ -14,9 +15,35 @@
   --accent-gold: #d4a574;
   --border-color: #2a2a35;
   --hover-bg: #252530;
-  --font-mono: "SF Mono", "Fira Code", "Noto Sans Mono", monospace;
-  --font-sans: "Noto Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
-  --font-serif: "Noto Serif", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  
+  /* Font stacks by language */
+  --font-zh: "LXGW WenKai", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-zh-serif: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+  --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  --font-ja-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  --font-en: "Inter", "SF Pro Display", "Segoe UI", sans-serif;
+  --font-en-serif: "Playfair Display", "Noto Serif", "Times New Roman", serif;
+  --font-mono: "SF Mono", "Fira Code", "JetBrains Mono", monospace;
+  
+  /* Dynamic font variables (set by JS) */
+  --font-sans: var(--font-zh);
+  --font-serif: var(--font-zh-serif);
+}
+
+/* Language-specific font overrides */
+:lang(zh) {
+  --font-sans: var(--font-zh);
+  --font-serif: var(--font-zh-serif);
+}
+
+:lang(ja) {
+  --font-sans: var(--font-ja);
+  --font-serif: var(--font-ja-serif);
+}
+
+:lang(en) {
+  --font-sans: var(--font-en);
+  --font-serif: var(--font-en-serif);
 }
 
 /* Reset & Base */
@@ -40,20 +67,36 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: font-family 0.3s ease;
 }
 
-/* Selection color */
+/* Selection */
 ::selection {
   background: var(--accent-purple);
   color: white;
 }
 
-/* Typography Scale */
+/* Typography */
 h1, h2, h3 {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.3;
+}
+
+/* Language-specific typography adjustments */
+:lang(zh) h1, :lang(zh) h2, :lang(zh) h3 {
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+:lang(ja) h1, :lang(ja) h2, :lang(ja) h3 {
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+
+:lang(en) h1, :lang(en) h2, :lang(en) h3 {
   letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 h1 {
@@ -63,7 +106,6 @@ h1 {
   display: inline-block;
 }
 
-/* Decorative underline for h1 */
 h1::after {
   content: '';
   position: absolute;
@@ -82,17 +124,12 @@ h2 {
   padding-left: 1rem;
 }
 
-h3 {
-  font-size: 1.25rem;
-  margin: 2rem 0 1rem 0;
-  color: var(--accent-gold);
-}
-
 p {
   margin-bottom: 1.5rem;
   text-align: justify;
   text-justify: inter-ideograph;
   max-width: 70ch;
+  transition: font-family 0.3s ease;
 }
 
 /* Links */
@@ -109,7 +146,7 @@ a:hover {
   border-bottom-color: var(--accent-purple);
 }
 
-/* Header - Sticky with glass effect */
+/* Header */
 header {
   position: sticky;
   top: 0;
@@ -123,36 +160,115 @@ header {
   gap: 1rem;
 }
 
-/* Language Switcher */
-.lang {
+/* Language Switcher - Redesigned */
+.lang-switcher {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
-  display: flex;
-  gap: 0.5rem;
 }
 
-.lang button {
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  padding: 0.4rem 0.8rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-family: var(--font-mono);
   font-size: 0.85rem;
+  border-radius: 4px;
   transition: all 0.3s ease;
-  border-radius: 2px;
 }
 
-.lang button:hover {
+.lang-current:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-purple);
+  color: var(--text-primary);
+}
+
+.lang-current svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.lang-current .arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.7rem;
+}
+
+.lang-switcher.active .lang-current .arrow {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  min-width: 140px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.lang-switcher.active .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.lang-option:last-child {
+  border-bottom: none;
+}
+
+.lang-option:hover {
+  background: var(--hover-bg);
+  color: var(--text-primary);
+  padding-left: 1.2rem;
+}
+
+.lang-option.active {
   background: var(--accent-purple);
   color: white;
-  border-color: var(--accent-purple);
-  transform: translateY(-2px);
 }
 
-.lang button:active {
-  transform: translateY(0);
+.lang-option .lang-flag {
+  font-size: 1.1rem;
+}
+
+.lang-option .lang-label {
+  flex: 1;
+}
+
+.lang-option .lang-code {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.6;
 }
 
 /* Navigation */
@@ -198,10 +314,6 @@ nav a:hover::after {
 /* Dropdown */
 .dropdown {
   position: relative;
-}
-
-.dropbtn {
-  cursor: pointer;
 }
 
 .dropdown-content {
@@ -270,17 +382,27 @@ section::before {
   opacity: 0.5;
 }
 
-/* Profile section special styling */
-section:first-of-type h2 {
-  border-left-color: var(--accent-red);
+/* Language-specific section styling */
+:lang(zh) section p {
+  line-height: 1.9;
+  letter-spacing: 0.03em;
 }
 
-/* Greeting section - poetic styling */
+:lang(ja) section p {
+  line-height: 2;
+  letter-spacing: 0.02em;
+}
+
+:lang(en) section p {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Greeting section special styling */
 section:nth-of-type(2) p[data-lang="zh"],
 section:nth-of-type(2) p[data-lang="ja"] {
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  line-height: 2;
   color: var(--text-secondary);
   position: relative;
   padding-left: 1.5rem;
@@ -332,25 +454,16 @@ footer {
   margin-top: auto;
 }
 
-/* Special elements */
-.accent-box {
-  background: var(--bg-secondary);
-  border-left: 3px solid var(--accent-purple);
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 0 4px 4px 0;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   header {
     padding: 1rem;
   }
   
-  .lang {
+  .lang-switcher {
     position: static;
     margin-bottom: 1rem;
-    justify-content: flex-end;
+    align-self: flex-end;
   }
   
   .main-nav {
@@ -371,33 +484,34 @@ footer {
   }
 }
 
-/* Print styles */
-@media print {
-  body {
-    background: white;
-    color: black;
-  }
-  
-  header {
-    position: static;
-    background: white;
-  }
-  
-  .lang, nav {
-    display: none;
-  }
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Smooth fade for language switching */
+main {
+  animation: fadeIn 0.6s ease-out;
+}
+
 [data-lang] {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 [data-lang]:not([style*="display: block"]) {
   opacity: 0;
+  transform: translateY(10px);
+  position: absolute;
+  pointer-events: none;
 }
 
-/* Scrollbar styling */
+[data-lang][style*="display: block"] {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -415,46 +529,25 @@ footer {
   background: var(--accent-purple);
 }
 
-/* Focus visible for accessibility */
+/* Focus visible */
 *:focus-visible {
   outline: 2px solid var(--accent-purple);
   outline-offset: 2px;
 }
 
-/* Loading animation for page */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-main {
-  animation: fadeIn 0.6s ease-out;
-}
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 1.8rem;
-  left: 0;
-  background: #fff;
-  border: 1px solid #ccc;
-  min-width: 160px;
-  z-index: 100;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 0.5rem 0.8rem;
-  white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-  background: #f2f2f2;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  header {
+    position: static;
+    background: white;
+  }
+  
+  .lang-switcher, nav {
+    display: none;
+  }
 }
