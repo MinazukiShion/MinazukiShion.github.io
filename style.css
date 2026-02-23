@@ -1,6 +1,6 @@
 /* ============================================
    水無月紫苑 - Compact Academic Style
-   Fixed Interaction Version
+   Fixed Hover Interactions
    ============================================ */
 
 :root {
@@ -17,6 +17,7 @@
   --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-en: "Inter", "SF Pro Display", -apple-system, sans-serif;
+  --font-mono: "SF Mono", monospace;
   
   --font-sans: var(--font-zh);
 }
@@ -49,35 +50,37 @@ body {
 
 /* Typography */
 h1 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin: 3rem 0 1.25rem 0;
-  padding-bottom: 0.5rem;
+  margin: 2.5rem 0 1rem 0;
+  padding-bottom: 0.4rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 p {
   margin-bottom: 1.25rem;
   line-height: 1.8;
+  color: var(--text-primary);
 }
 
 a {
   color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--accent-purple);
 }
 
-/* Header - slightly taller for comfort */
+/* Compact Header */
 header {
   position: sticky;
   top: 0;
@@ -85,7 +88,342 @@ header {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   padding: 0 2rem;
+  height: 3rem;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.site-title a {
+  color: inherit;
+}
+
+/* Navigation - with hover bridge */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 0.5rem 0;
+  position: relative;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+}
+
+/* Dropdown - Fixed hover with intent delay */
+.dropdown {
+  position: relative;
+  padding-bottom: 1rem; /* Bridge to dropdown */
+  margin-bottom: -1rem; /* Compensate spacing */
+}
+
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  min-width: 160px;
+  padding: 0.5rem 0;
+  border-radius: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  
+  /* Hover intent: delay appearance */
+  visibility: hidden;
+  opacity: 0;
+  transition: 
+    visibility 0s linear 0.2s,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  transform: translateX(-50%) translateY(-5px);
+  pointer-events: none;
+}
+
+/* Show dropdown on hover with delay */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  transition-delay: 0s;
+  pointer-events: auto;
+}
+
+/* Extended hover area (invisible bridge) */
+.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: transparent;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.dropdown-content a:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding-left: 1.2rem;
+}
+
+/* Language Switcher - Fixed hover */
+.lang-switcher {
+  position: relative;
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.lang-current {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  border-radius: 2px;
+  transition: all 0.15s ease;
+}
+
+.lang-current:hover,
+.lang-switcher:hover .lang-current {
+  border-color: var(--accent-purple);
+  color: var(--text-primary);
+}
+
+.lang-current:active {
+  transform: scale(0.98);
+}
+
+.lang-current .arrow {
+  font-size: 0.6rem;
+  transition: transform 0.2s ease;
+}
+
+.lang-switcher:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  min-width: 120px;
+  padding: 0.25rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  
+  /* Hover intent */
+  visibility: hidden;
+  opacity: 0;
+  transition: 
+    visibility 0s linear 0.15s,
+    opacity 0.15s ease,
+    transform 0.15s ease;
+  transform: translateY(-5px);
+  pointer-events: none;
+}
+
+/* Show on hover with bridge */
+.lang-switcher:hover .lang-dropdown,
+.lang-dropdown:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+  pointer-events: auto;
+}
+
+/* Invisible bridge for lang switcher */
+.lang-switcher::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: transparent;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.lang-option:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.lang-option.active {
+  color: var(--accent-purple);
+}
+
+/* Main Content */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+  flex: 1;
+  width: 100%;
+}
+
+/* Sections */
+section {
+  margin-bottom: 2.5rem;
+}
+
+/* Keep poetic style for greeting */
+section:nth-of-type(2) p[data-lang="zh"],
+section:nth-of-type(2) p[data-lang="ja"] {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-purple);
+  margin-bottom: 1.25rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+}
+
+ul li {
+  margin-bottom: 0.75rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-red);
+  font-weight: 300;
+}
+
+ul li a {
+  color: var(--accent-gold);
+}
+
+ul li a:hover {
+  color: var(--accent-purple);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-top: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 0 1rem;
+    height: auto;
+    min-height: 2.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .main-nav {
+    position: static;
+    transform: none;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.25rem;
+  }
+  
+  .dropdown {
+    padding-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
+  }
+  
+  main {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Language content transitions */
+[data-lang] {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+[data-lang].active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}  display: flex;
   align-items: center;
   justify-content: space-between;
   height: 4rem;
