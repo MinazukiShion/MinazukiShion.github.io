@@ -1,61 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>水無月紫苑 / Shion Minazuki</title>
-  <style>
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans", system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #111;
-      line-height: 1.7;
-    }
-    header {
-      border-bottom: 1px solid #ccc;
-      padding: 1.5rem;
-    }
-    h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
-    nav a {
-      margin-right: 1rem;
-      text-decoration: none;
-      color: #111;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .lang {
-      float: right;
-    }
-    .lang button {
-      margin-left: 0.5rem;
-      background: none;
-      border: 1px solid #aaa;
-      padding: 0.2rem 0.6rem;
-      cursor: pointer;
-    }
-    main {
-      padding: 2rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    footer {
-      border-top: 1px solid #ccc;
-      padding: 1rem 1.5rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
@@ -64,94 +15,71 @@
     <button onclick="setLang('ja')">日</button>
     <button onclick="setLang('en')">EN</button>
   </div>
-  <h1 data-i18n="name"></h1>
+
+  <h1>
+    <span data-lang="zh">水無月紫苑</span>
+    <span data-lang="ja">水無月 紫苑</span>
+    <span data-lang="en">Shion Minazuki</span>
+  </h1>
+
   <nav>
-    <a href="#home" data-i18n="nav_home"></a>
-    <a href="#nonfiction" data-i18n="nav_nonfiction"></a>
-    <a href="#fiction" data-i18n="nav_fiction"></a>
+    <a href="index.html">Home</a>
+    <a href="nonfiction.html">Non-Fiction</a>
+    <a href="fiction.html">Fiction</a>
   </nav>
 </header>
 
 <main>
-  <section id="home">
-    <p data-i18n="intro"></p>
-  </section>
 
-  <section id="nonfiction">
-    <h2 data-i18n="nonfiction_title"></h2>
-    <h3 data-i18n="policy_title"></h3>
-    <p data-i18n="policy_desc"></p>
+<section>
+  <p data-lang="zh">
+    我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。
+    我的研究与创作关注性别、政治、文化和生态，
+    尤其聚焦于东亚语境中的反殖民主义与马克思主义。
+  </p>
 
-    <h3 data-i18n="research_title"></h3>
-    <p data-i18n="research_desc"></p>
-  </section>
+  <p data-lang="ja">
+    私は水無月紫苑。東アジア出身のトランスジェンダー女性であり、
+    嵐桜政策研究会の創設者の一人です。
+    私の研究と創作は、ジェンダー・政治・文化・エコロジーを横断し、
+    とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。
+  </p>
 
-  <section id="fiction">
-    <h2 data-i18n="fiction_title"></h2>
-    <p data-i18n="fiction_desc"></p>
-  </section>
+  <p data-lang="en">
+    I am Shion Minazuki, a transgender woman from East Asia and one of the founders
+    of the Ranzakura Policy Research Group.
+    My work explores gender, politics, culture, and ecology,
+    with a particular focus on anti-colonialism and Marxism in East Asian contexts.
+  </p>
+</section>
+
+<section>
+  <p data-lang="zh">
+    虽然我的政治立场可能与许多西方进步思潮有所不同，
+    但我坚信，真正的多元主义，
+    必定容许亚细亚的孩子们为自己的生活方式和文化风土而骄傲。
+  </p>
+
+  <p data-lang="ja">
+    私の政治的立場は、西洋の進歩的潮流とは異なって見えるかもしれません。
+    しかし私は、真の多元主義とは、
+    アジアの子どもたちが自らの生活様式と文化的風土を
+    誇りをもって祝福することを許すものだと信じています。
+  </p>
+
+  <p data-lang="en">
+    While my political positions may differ from many Western progressive frameworks,
+    I believe that genuine pluralism must allow the children of Asia
+    to take pride in their own ways of life and cultural landscapes.
+  </p>
+</section>
+
 </main>
 
 <footer>
-  <p>© 水無月紫苑 / Shion Minazuki</p>
+  © 水無月紫苑 / Shion Minazuki
 </footer>
 
-<script>
-const text = {
-  zh: {
-    name: "水無月紫苑 / Shion Minazuki",
-    nav_home: "首页",
-    nav_nonfiction: "Non-Fiction",
-    nav_fiction: "Fiction",
-    intro: "我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。我的研究与创作关注性别、政治、文化和生态，尤其聚焦于东亚语境中的反殖民主义与马克思主义。",
-    nonfiction_title: "Non-Fiction",
-    policy_title: "水無月紫苑的政策",
-    policy_desc: "这一分区集中呈现我对于现实政治、制度设计与公共议题的立场与主张。它并非宣言，而是对现实的持续回应。",
-    research_title: "水無月紫苑的研究",
-    research_desc: "这一分区收录我的理论研究、概念分析与长文写作，关注性别、政治思想史与东亚社会结构。",
-    fiction_title: "Fiction / OC 创作",
-    fiction_desc: "这里是我的原创世界与角色创作。它们并非现实的逃避，而是另一种形式的真实。"
-  },
-  ja: {
-    name: "水無月紫苑 / Shion Minazuki",
-    nav_home: "ホーム",
-    nav_nonfiction: "ノンフィクション",
-    nav_fiction: "フィクション",
-    intro: "私は水無月紫苑、東アジア出身のトランスジェンダー女性であり、嵐桜政策研究会の創設者の一人です。私の研究と創作は、ジェンダー、政治、文化、エコロジーを横断し、とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。",
-    nonfiction_title: "ノンフィクション",
-    policy_title: "水無月紫苑の政策",
-    policy_desc: "このセクションでは、現実政治や制度設計、公共課題に対する私の立場と思考を記録しています。これは宣言ではなく、現実への継続的な応答です。",
-    research_title: "水無月紫苑の研究",
-    research_desc: "このセクションには、理論研究、概念分析、長文エッセイを収録しています。ジェンダー、政治思想史、東アジア社会構造を主題とします。",
-    fiction_title: "フィクション / OC創作",
-    fiction_desc: "ここには私のオリジナル世界観とキャラクター創作があります。それは現実からの逃避ではなく、もう一つの現実です。"
-  },
-  en: {
-    name: "Shion Minazuki",
-    nav_home: "Home",
-    nav_nonfiction: "Non-Fiction",
-    nav_fiction: "Fiction",
-    intro: "I am Shion Minazuki, a transgender woman from East Asia and one of the founders of the Ranzakura Policy Research Group. My work explores gender, politics, culture, and ecology, with a particular focus on anti-colonialism and Marxism in East Asian contexts.",
-    nonfiction_title: "Non-Fiction",
-    policy_title: "Policies of Shion Minazuki",
-    policy_desc: "This section presents my positions on real-world politics, institutional design, and public issues. It is not a manifesto, but an ongoing response to reality.",
-    research_title: "Research of Shion Minazuki",
-    research_desc: "This section contains my theoretical research, conceptual analysis, and long-form writing, focusing on gender, political thought, and East Asian social structures.",
-    fiction_title: "Fiction / Original Creations",
-    fiction_desc: "This is where my original worlds and characters live. They are not an escape from reality, but another form of it."
-  }
-};
-
-function setLang(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    el.textContent = text[lang][key];
-  });
-}
-
-setLang('zh');
-</script>
-
+<script src="lang.js"></script>
 </body>
 </html>
