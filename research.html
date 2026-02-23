@@ -21,7 +21,7 @@
     <a href="index.html" data-nav="home">首页</a>
     
     <div class="dropdown">
-      <a href="nonfiction.html" class="dropbtn" data-nav="nonfiction">非虚构</a>
+      <a class="dropbtn" data-nav="nonfiction">非虚构</a>
       <div class="dropdown-content">
         <a href="policy.html" data-nav="policy">政策</a>
         <a href="research.html" data-nav="research">研究</a>
@@ -32,11 +32,14 @@
   </nav>
 
   <div class="lang-switcher">
-    <button class="lang-current">中文 <span class="arrow">▼</span></button>
+    <button class="lang-current">
+      <span class="lang-text">中文 </span>
+      <span class="arrow">▼</span>
+    </button>
     <div class="lang-dropdown">
-      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文</button>
+      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
       <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語</button>
-      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English</button>
+      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">EN</button>
     </div>
   </div>
 </header>
