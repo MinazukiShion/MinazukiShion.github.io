@@ -2,27 +2,24 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Policy｜水無月紫苑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>政策｜水無月紫苑</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 站名区域 -->
 <div class="site-header-top">
   <div class="site-title">
     <a href="index.html">水無月紫苑</a>
   </div>
 </div>
 
-<!-- 导航栏 -->
 <header>
   <nav class="main-nav">
     <a href="index.html" data-nav="home">首页</a>
-
     <div class="dropdown">
       <a class="dropbtn" data-nav="nonfiction">非虚构</a>
       <div class="dropdown-content">
@@ -30,44 +27,89 @@
         <a href="research.html" data-nav="research">研究</a>
       </div>
     </div>
-
     <a href="fiction.html" data-nav="fiction">虚构</a>
   </nav>
-
   <div class="lang-switcher">
-    <button class="lang-current">
-      <span class="lang-text">中文</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="lang-dropdown">
-      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+    <div class="lang-switcher-inner">
+      <button class="lang-current">
+        <span class="lang-text">中文</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
 
-<section>
-  <p data-lang="zh">
-    我并不把政策理解为统治的技术，
-    而是理解为对已经存在的痛苦负责。
-    政治的工作，首先是看见。
-  </p>
+  <!-- 导言 -->
+  <section>
+    <p data-lang="zh">我并不把政策理解为统治的技术，而是理解为对已经存在的痛苦负责。政治的工作，首先是看见。</p>
+    <p data-lang="ja">私は政策を支配の技術とは考えていません。それは、すでに存在している苦しみに対して責任を引き受ける行為です。政治の仕事は、まず「見ること」から始まります。</p>
+    <p data-lang="en">I do not understand policy as a technique of control. For me, it is a responsibility toward existing suffering. Politics begins with seeing.</p>
+  </section>
 
-  <p data-lang="ja">
-    私は政策を支配の技術とは考えていません。
-    それは、すでに存在している苦しみに対して責任を引き受ける行為です。
-    政治の仕事は、まず「見ること」から始まります。
-  </p>
+  <!-- ============================================================
+       政见放送 — 直接在这里编辑，不走 content.js
+       每个 .policy-item 是一条政见，可以无限添加
+       ============================================================ -->
 
-  <p data-lang="en">
-    I do not understand policy as a technique of control.
-    For me, it is a responsibility toward existing suffering.
-    Politics begins with seeing.
-  </p>
-</section>
+  <section>
+    <h2>
+      <span data-lang="zh">政策主张</span>
+      <span data-lang="ja">政策主張</span>
+      <span data-lang="en">Policy Positions</span>
+    </h2>
+
+    <div class="policy-list">
+
+      <div class="policy-item">
+        <div class="policy-item-title">
+          <span data-lang="zh">派阀民主与党内多元化</span>
+          <span data-lang="ja">派閥民主主義と党内多元化</span>
+          <span data-lang="en">Factional Democracy and Intra-party Pluralism</span>
+        </div>
+        <p class="policy-item-body">
+          <span data-lang="zh">政治的健全不依赖于多党轮替，而依赖于党内派系间真实的张力与制衡。自民党模式证明了这种可能性，东亚的民主化可以从内部生长，而非从外部植入。</span>
+          <span data-lang="ja">政治の健全性は多党制の輪番ではなく、党内派閥間の真の緊張と均衡に依拠する。自民党モデルはその可能性を証明しており、東アジアの民主化は外部から移植されるのではなく、内部から育まれうる。</span>
+          <span data-lang="en">Political health depends not on multi-party rotation but on genuine tension and balance among factions within the party. The LDP model demonstrates this possibility: democratization in East Asia can grow from within, not be transplanted from without.</span>
+        </p>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-item-title">
+          <span data-lang="zh">反对新自由主义化</span>
+          <span data-lang="ja">新自由主義化への反対</span>
+          <span data-lang="en">Against Neoliberalization</span>
+        </div>
+        <p class="policy-item-body">
+          <span data-lang="zh">中国的问题不是方向问题，而是反馈机制的断裂。新自由主义化对国民幸福没有好处。国民需要的是更多发言空间，而非西式自由化。</span>
+          <span data-lang="ja">中国の問題は方向性ではなく、フィードバック機構の断絶にある。新自由主義化は国民の幸福に寄与しない。必要なのは発言空間の拡大であり、西洋式自由化ではない。</span>
+          <span data-lang="en">China's problem is not one of direction but of broken feedback mechanisms. Neoliberalization has not served the wellbeing of the people. What is needed is more space for citizens to speak, not Western-style liberalization.</span>
+        </p>
+      </div>
+
+      <div class="policy-item">
+        <div class="policy-item-title">
+          <span data-lang="zh">东亚民主的独立路径</span>
+          <span data-lang="ja">東アジア民主主義の独自路線</span>
+          <span data-lang="en">An Independent Path for East Asian Democracy</span>
+        </div>
+        <p class="policy-item-body">
+          <span data-lang="zh">东亚的民主化不能套用西欧范式。即使中国民主化，也不可能与西欧走同一条路。它必须从自身的历史、文化与政治结构中生长出来。</span>
+          <span data-lang="ja">東アジアの民主化は西欧のパラダイムを模倣することはできない。中国が民主化しても、西欧と同じ道を歩むことはないだろう。それは自らの歴史・文化・政治構造から育まれなければならない。</span>
+          <span data-lang="en">Democratization in East Asia cannot follow the Western European paradigm. Even a democratic China would not resemble Western Europe. It must grow from its own history, culture, and political structures.</span>
+        </p>
+      </div>
+
+      <!-- ↑ 在这里继续添加新的 .policy-item 即可 -->
+
+    </div>
+  </section>
 
 </main>
 
