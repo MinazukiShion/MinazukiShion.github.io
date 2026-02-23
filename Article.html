@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章｜水無月紫苑</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="site-header-top">
+  <div class="site-title">
+    <a href="index.html">水無月紫苑</a>
+  </div>
+</div>
+
+<header>
+  <nav class="main-nav">
+    <a href="index.html" data-nav="home">首页</a>
+    <div class="dropdown">
+      <a class="dropbtn" data-nav="nonfiction">非虚构</a>
+      <div class="dropdown-content">
+        <a href="policy.html" data-nav="policy">政策</a>
+        <a href="research.html" data-nav="research">研究</a>
+      </div>
+    </div>
+    <a href="fiction.html" data-nav="fiction">虚构</a>
+  </nav>
+  <div class="lang-switcher">
+    <div class="lang-switcher-inner">
+      <button class="lang-current">
+        <span class="lang-text">中文</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <a class="article-back" id="back-link" href="index.html">← <span id="back-label">返回</span></a>
+
+  <article>
+    <div class="article-header">
+      <div class="article-meta">
+        <span class="post-date" id="article-date"></span>
+        <span class="post-tag" id="article-tag"></span>
+      </div>
+      <h1 class="article-title" id="article-title"></h1>
+    </div>
+    <div class="article-body" id="article-body"></div>
+  </article>
+</main>
+
+<footer>© 水無月紫苑</footer>
+
+<!-- 两个内容库都加载，自动根据 ?type= 参数选择 -->
+<script src="fiction-content.js"></script>
+<script src="research-content.js"></script>
+
+<script>
+/* ── 极简 Markdown 解析器 ── */
+function parseMarkdown(md) {
+  const lines = md.split('\n');
+  let html = '';
+  let inBlockquote = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i];
+
+    // 标题
+    if (line.startsWith('### ')) {
+      if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
+      html += `<h3>${inline(line.slice(4))}</h3>`;
+      continue;
+    }
+    if (line.startsWith('## ')) {
+      if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
+      html += `<h2>${inline(line.slice(3))}</h2>`;
+      continue;
+    }
+    if (line.startsWith('# ')) {
+      if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
+      html += `<h3>${inline(line.slice(2))}</h3>`;
+      continue;
+    }
+
+    // 引用块
+    if (line.startsWith('> ')) {
+      if (!inBlockquote) { html += '<blockquote>'; inBlockquote = true; }
+      html += `<p>${inline(line.slice(2))}</p>`;
+      continue;
+    } else {
+      if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
+    }
+
+    // 水平线
+    if (line.match(/^---+$/)) { html += '<hr>'; continue; }
+
+    // 空行
+    if (line.trim() === '') continue;
+
+    // 普通段落
+    html += `<p>${inline(line)}</p>`;
+  }
+
+  if (inBlockquote) html += '</blockquote>';
+  return html;
+}
+
+function inline(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+}
+
+/* ── 文章渲染 ── */
+function renderArticle(lang) {
+  const params = new URLSearchParams(location.search);
+  const id   = params.get('id');
+  const type = params.get('type') || 'research'; // fiction | research
+
+  const articles = type === 'fiction'
+    ? (window.FICTION_ARTICLES || [])
+    : (window.RESEARCH_ARTICLES || []);
+
+  const tagLabels = type === 'fiction'
+    ? (window.FICTION_TAG_LABELS || {})
+    : (window.RESEARCH_TAG_LABELS || {});
+
+  const article = articles.find(a => a.id === id);
+
+  const backLabels = { zh: '← 返回', ja: '← 戻る', en: '← Back' };
+  const backLinks  = { fiction: 'fiction.html', research: 'research.html' };
+  const notFound   = { zh: '文章不存在', ja: '記事が見つかりません', en: 'Article not found' };
+
+  document.getElementById('back-label').textContent = backLabels[lang] || backLabels.zh;
+  document.getElementById('back-link').href = backLinks[type] || 'index.html';
+
+  if (!article) {
+    document.getElementById('article-title').textContent = notFound[lang] || notFound.zh;
+    return;
+  }
+
+  const content = article[lang] || article.zh;
+  const tagLabel = tagLabels[article.tag]?.[lang] ?? article.tag;
+
+  document.getElementById('article-date').textContent  = article.date;
+  document.getElementById('article-tag').textContent   = tagLabel;
+  document.getElementById('article-title').textContent = content.title;
+  document.getElementById('article-body').innerHTML    = parseMarkdown(content.body);
+
+  // 更新页面标题
+  document.title = content.title + '｜水無月紫苑';
+}
+
+function renderContent(lang) {
+  renderArticle(lang);
+}
+</script>
+
+<script src="lang.js"></script>
+</body>
+</html>
