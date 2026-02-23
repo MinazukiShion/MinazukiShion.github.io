@@ -16,6 +16,7 @@
   --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-en: "Georgia", "Times New Roman", serif;
+  --font-mincho: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "MS Mincho", "ＭＳ 明朝", serif;
   --font-sans: var(--font-zh);
 }
 
@@ -91,20 +92,24 @@ header {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
   padding: 0 2rem;
-  height: 3rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .site-title {
-  font-size: 0.95rem;
-  font-weight: 600;
   flex-shrink: 0;
 }
 
 .site-title a {
-  color: inherit;
+  font-family: var(--font-mincho);
+  font-size: 1.45rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .site-title a:hover {
@@ -439,6 +444,67 @@ footer {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+
+/* ============================================
+   Post / Content List
+   ============================================ */
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-item:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.post-date {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+.post-tag {
+  font-size: 0.72rem;
+  color: var(--accent-purple);
+  border: 1px solid var(--accent-purple);
+  padding: 0.1rem 0.5rem;
+  border-radius: 1px;
+  letter-spacing: 0.05em;
+}
+
+.post-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  display: block;
+}
+
+.post-title:hover {
+  color: var(--accent-purple);
+}
+
+.post-title [data-lang] {
+  animation: none;
+}
 /* ============================================
    Responsive
    ============================================ */
