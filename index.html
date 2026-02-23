@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>水無月紫苑 / Shion Minazuki</title>
+  <title>水無月紫苑</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
@@ -11,18 +11,15 @@
 </head>
 <body>
 
-<!-- 站名区域 -->
 <div class="site-header-top">
   <div class="site-title">
     <a href="index.html">水無月紫苑</a>
   </div>
 </div>
 
-<!-- 导航栏 -->
 <header>
   <nav class="main-nav">
     <a href="index.html" data-nav="home">首页</a>
-
     <div class="dropdown">
       <a class="dropbtn" data-nav="nonfiction">非虚构</a>
       <div class="dropdown-content">
@@ -30,189 +27,118 @@
         <a href="research.html" data-nav="research">研究</a>
       </div>
     </div>
-
     <a href="fiction.html" data-nav="fiction">虚构</a>
   </nav>
-
   <div class="lang-switcher">
-    <button class="lang-current">
-      <span class="lang-text">中文</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="lang-dropdown">
-      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+    <div class="lang-switcher-inner">
+      <button class="lang-current">
+        <span class="lang-text">中文</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- Profile -->
   <section>
     <h2>
       <span data-lang="zh">自我介绍</span>
       <span data-lang="ja">プロフィール</span>
       <span data-lang="en">Profile</span>
     </h2>
-
-    <p data-lang="zh">
-      我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。
-      我的研究与创作关注性别、政治、文化和生态，
-      尤其聚焦于东亚语境中的反殖民主义与马克思主义。
-    </p>
-
-    <p data-lang="ja">
-      私は水無月紫苑、東アジア出身のトランスジェンダー女性であり、
-      嵐桜政策研究会の創設者の一人です。
-      私の研究と創作は、ジェンダー・政治・文化・エコロジーを横断し、
-      とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。
-    </p>
-
-    <p data-lang="en">
-      I am Shion Minazuki, a transgender woman from East Asia and one of the founders
-      of the Ranzakura Policy Research Group.
-      My work explores gender, politics, culture, and ecology,
-      with a particular focus on anti-colonialism and Marxism in East Asian contexts.
-    </p>
+    <p data-lang="zh">我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。我的研究与创作关注性别、政治、文化和生态，尤其聚焦于东亚语境中的反殖民主义与马克思主义。</p>
+    <p data-lang="ja">私は水無月紫苑、東アジア出身のトランスジェンダー女性であり、嵐桜政策研究会の創設者の一人です。私の研究と創作は、ジェンダー・政治・文化・エコロジーを横断し、とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。</p>
+    <p data-lang="en">I am Shion Minazuki, a transgender woman from East Asia and one of the founders of the Ranzakura Policy Research Group. My work explores gender, politics, culture, and ecology, with a particular focus on anti-colonialism and Marxism in East Asian contexts.</p>
   </section>
 
-  <!-- Greeting -->
   <section>
     <h2>
       <span data-lang="zh">问候</span>
       <span data-lang="ja">ご挨拶</span>
       <span data-lang="en">Greeting</span>
     </h2>
-
     <div data-lang="zh">
       <p>为什么要从事政治研究呢。</p>
       <p>一开始只是被人说"可以试试看"，就去做了。</p>
-      <p>后来走了很多地方，听了很多故事，发现很多人的生活里，<br>
-      都有无法被好好说出来的不幸和痛苦。<br>
-      在那些时刻，我不断地感受到——<br>
-      原来大家也都有着和我相似的苦恼与创伤。</p>
-      <p>既然已经看见了，就很难再假装没有看见过。<br>
-      我相信，政治的使命，是勇敢且真诚地说出真相。<br>
-      我也相信，所谓政治，是让所有国民能够平等地得到恩惠的事业。</p>
-      <p>所以想试着，为那些不太能发声的人，说一点点话。<br>
-      也希望政治能够始终怀有对人民的敬畏之心，<br>
-      知道谁在哪里、为什么感到难过，并且愿意一起哭泣。</p>
+      <p>后来走了很多地方，听了很多故事，发现很多人的生活里，<br>都有无法被好好说出来的不幸和痛苦。<br>在那些时刻，我不断地感受到——<br>原来大家也都有着和我相似的苦恼与创伤。</p>
+      <p>既然已经看见了，就很难再假装没有看见过。<br>我相信，政治的使命，是勇敢且真诚地说出真相。<br>我也相信，所谓政治，是让所有国民能够平等地得到恩惠的事业。</p>
+      <p>所以想试着，为那些不太能发声的人，说一点点话。<br>也希望政治能够始终怀有对人民的敬畏之心，<br>知道谁在哪里、为什么感到难过，并且愿意一起哭泣。</p>
     </div>
-
     <div data-lang="ja">
       <p>なぜ政治研究に携わるのか。</p>
       <p>最初は「試してみたらどうか」と言われ、やってみただけでした。</p>
-      <p>しかし各地を歩き、多くの話を聞く中で、<br>
-      人々の生活には言葉にされにくい不幸や痛みが<br>
-      確かに存在していることを知りました。<br>
-      そのたびに、私自身と似た苦悩や傷が<br>
-      そこにあるのだと感じ続けてきました。</p>
-      <p>一度見てしまったものを、<br>
-      見なかったことにはできません。<br>
-      私は、政治の使命とは、<br>
-      真実を勇気と誠実さをもって語ることだと信じています。<br>
-      また政治とは、<br>
-      すべての人が等しく恩恵を受けられる営みであるべきだとも考えています。</p>
-      <p>だからこそ、声を上げにくい人々のために、<br>
-      少しでも言葉を紡ぎたいと思いました。<br>
-      そして政治が常に人民への畏敬を忘れず、<br>
-      誰がどこで、なぜ悲しんでいるのかを知り、<br>
-      ともに涙を流せるものであってほしいと願っています。</p>
+      <p>しかし各地を歩き、多くの話を聞く中で、<br>人々の生活には言葉にされにくい不幸や痛みが<br>確かに存在していることを知りました。<br>そのたびに、私自身と似た苦悩や傷が<br>そこにあるのだと感じ続けてきました。</p>
+      <p>一度見てしまったものを、<br>見なかったことにはできません。<br>私は、政治の使命とは、<br>真実を勇気と誠実さをもって語ることだと信じています。<br>また政治とは、<br>すべての人が等しく恩恵を受けられる営みであるべきだとも考えています。</p>
+      <p>だからこそ、声を上げにくい人々のために、<br>少しでも言葉を紡ぎたいと思いました。<br>そして政治が常に人民への畏敬を忘れず、<br>誰がどこで、なぜ悲しんでいるのかを知り、<br>ともに涙を流せるものであってほしいと願っています。</p>
     </div>
-
     <div data-lang="en">
       <p>Why engage in political research?</p>
       <p>At first, it was simply because someone suggested I try.</p>
-      <p>As I traveled, listened, and observed,<br>
-      I came to realize how many lives are marked by unspoken pain and quiet suffering.<br>
-      Again and again, I felt that these struggles were not so different from my own.</p>
-      <p>Once seen, such realities cannot be unseen.<br>
-      I believe the task of politics is to speak the truth with courage and sincerity,<br>
-      and that politics should be an endeavor through which all people<br>
-      may share in its benefits equally.</p>
-      <p>For this reason, I wish to speak—if only a little—<br>
-      on behalf of those whose voices are difficult to hear,<br>
-      and to hope that politics may always retain a sense of reverence for the people,<br>
-      knowing who is hurting, where, and why,<br>
-      and being willing to grieve together.</p>
+      <p>As I traveled, listened, and observed,<br>I came to realize how many lives are marked by unspoken pain and quiet suffering.<br>Again and again, I felt that these struggles were not so different from my own.</p>
+      <p>Once seen, such realities cannot be unseen.<br>I believe the task of politics is to speak the truth with courage and sincerity,<br>and that politics should be an endeavor through which all people<br>may share in its benefits equally.</p>
+      <p>For this reason, I wish to speak—if only a little—<br>on behalf of those whose voices are difficult to hear,<br>and to hope that politics may always retain a sense of reverence for the people,<br>knowing who is hurting, where, and why,<br>and being willing to grieve together.</p>
     </div>
   </section>
 
-  <!-- Contact -->
   <section>
     <h2>
       <span data-lang="zh">官方账号</span>
       <span data-lang="ja">公式アカウント</span>
       <span data-lang="en">Official Account</span>
     </h2>
-    <p>
-      <a href="https://bsky.app/profile/shionminazuki.bsky.social" target="_blank">
-        Bluesky｜@shionminazuki.bsky.social
-      </a>
-    </p>
+    <p><a href="https://bsky.app/profile/shionminazuki.bsky.social" target="_blank">Bluesky｜@shionminazuki.bsky.social</a></p>
   </section>
 
-  <!-- 最近更新 -->
   <section>
     <h2>
       <span data-lang="zh">最近更新</span>
       <span data-lang="ja">最近の更新</span>
       <span data-lang="en">Recent</span>
     </h2>
-
-    <div class="post-list">
-
-      <article class="post-item">
-        <div class="post-meta">
-          <span class="post-date">2026.02</span>
-          <span class="post-tag" data-lang="zh">政策</span>
-          <span class="post-tag" data-lang="ja">政策</span>
-          <span class="post-tag" data-lang="en">Policy</span>
-        </div>
-        <a class="post-title" href="policy.html">
-          <span data-lang="zh">（示例）关于东亚民主转型的若干思考</span>
-          <span data-lang="ja">（例）東アジアにおける民主的移行についての考察</span>
-          <span data-lang="en">（Example）On Democratic Transition in East Asia</span>
-        </a>
-      </article>
-
-      <article class="post-item">
-        <div class="post-meta">
-          <span class="post-date">2026.01</span>
-          <span class="post-tag" data-lang="zh">研究</span>
-          <span class="post-tag" data-lang="ja">研究</span>
-          <span class="post-tag" data-lang="en">Research</span>
-        </div>
-        <a class="post-title" href="research.html">
-          <span data-lang="zh">（示例）马克思主义与东亚性别理论的交汇</span>
-          <span data-lang="ja">（例）マルクス主義と東アジアのジェンダー理論の交差</span>
-          <span data-lang="en">（Example）Marxism and Gender Theory in East Asia</span>
-        </a>
-      </article>
-
-      <article class="post-item">
-        <div class="post-meta">
-          <span class="post-date">2025.12</span>
-          <span class="post-tag" data-lang="zh">虚构</span>
-          <span class="post-tag" data-lang="ja">創作</span>
-          <span class="post-tag" data-lang="en">Fiction</span>
-        </div>
-        <a class="post-title" href="fiction.html">
-          <span data-lang="zh">（示例）无题</span>
-          <span data-lang="ja">（例）無題</span>
-          <span data-lang="en">（Example）Untitled</span>
-        </a>
-      </article>
-
-    </div>
+    <div class="post-list" id="home-post-list"></div>
   </section>
 
 </main>
 
 <footer>© 水無月紫苑 / Shion Minazuki</footer>
 
+<script src="fiction-content.js"></script>
+<script src="research-content.js"></script>
+<script>
+function renderContent(lang) {
+  const container = document.getElementById('home-post-list');
+  if (!container) return;
+
+  // 合并两个内容库，按日期排序，取最新5条
+  const fArticles = (window.FICTION_ARTICLES || []).map(a => ({ ...a, _type: 'fiction' }));
+  const rArticles = (window.RESEARCH_ARTICLES || []).map(a => ({ ...a, _type: 'research' }));
+  const all = [...fArticles, ...rArticles]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 5);
+
+  const fTags = window.FICTION_TAG_LABELS || {};
+  const rTags = window.RESEARCH_TAG_LABELS || {};
+
+  container.innerHTML = all.map(a => {
+    const tagLabels = a._type === 'fiction' ? fTags : rTags;
+    const tag   = tagLabels[a.tag]?.[lang] ?? a.tag;
+    const title = (a[lang] || a.zh).title;
+    return `<article class="post-item">
+      <div class="post-meta">
+        <span class="post-date">${a.date}</span>
+        <span class="post-tag">${tag}</span>
+      </div>
+      <a class="post-title" href="article.html?id=${a.id}&type=${a._type}">${title}</a>
+    </article>`;
+  }).join('');
+}
+</script>
 <script src="lang.js"></script>
 </body>
 </html>
