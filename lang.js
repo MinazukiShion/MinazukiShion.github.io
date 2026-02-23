@@ -10,15 +10,12 @@ function setLang(lang) {
   if (!langConfig[lang]) return;
   currentLang = lang;
   
-  // Update HTML lang
   document.documentElement.lang = lang === 'ja' ? 'ja' : lang === 'zh' ? 'zh-CN' : 'en';
   
-  // Toggle content visibility
   document.querySelectorAll('[data-lang]').forEach(el => {
     el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
   });
   
-  // Update UI
   updateLangSwitcher();
   updateNav();
   updateTitle();
@@ -30,11 +27,16 @@ function updateLangSwitcher() {
   const config = langConfig[currentLang];
   const btn = document.querySelector('.lang-current');
   if (btn) {
-    btn.innerHTML = `${config.label} <span class="arrow">▼</span>`;
+    const text = btn.querySelector('.lang-text') || btn;
+    text.childNodes[0].textContent = config.label + ' ';
   }
   
   document.querySelectorAll('.lang-option').forEach(opt => {
-    opt.classList.toggle('active', opt.dataset.langCode === currentLang);
+    const isActive = opt.dataset.langCode === currentLang;
+    opt.classList.toggle('active', isActive);
+    opt.innerHTML = isActive 
+      ? `${langConfig[opt.dataset.langCode].label} <span class="check">✓</span>`
+      : langConfig[opt.dataset.langCode].label;
   });
 }
 
@@ -58,16 +60,35 @@ function updateTitle() {
   document.title = title + (page === 'index' ? '' : '｜' + titles[currentLang].index);
 }
 
-// Toggle dropdown
+// Click outside to close dropdowns
 document.addEventListener('click', (e) => {
-  const switcher = document.querySelector('.lang-switcher');
-  if (!switcher) return;
-  
-  if (e.target.closest('.lang-current')) {
-    switcher.classList.toggle('active');
-  } else {
-    switcher.classList.remove('active');
+  // Language switcher
+  const langSwitcher = document.querySelector('.lang-switcher');
+  if (langSwitcher) {
+    if (e.target.closest('.lang-switcher')) {
+      if (e.target.closest('.lang-current')) {
+        langSwitcher.classList.toggle('active');
+      }
+    } else {
+      langSwitcher.classList.remove('active');
+    }
   }
+  
+  // Nav dropdowns
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(drop => {
+    if (e.target.closest('.dropdown') === drop) {
+      if (e.target.closest('.dropbtn')) {
+        // Close others
+        dropdowns.forEach(d => {
+          if (d !== drop) d.classList.remove('active');
+        });
+        drop.classList.toggle('active');
+      }
+    } else {
+      drop.classList.remove('active');
+    }
+  });
 });
 
 // Init
