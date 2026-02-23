@@ -2,27 +2,24 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Research｜水無月紫苑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>研究｜水無月紫苑</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- 站名区域 -->
 <div class="site-header-top">
   <div class="site-title">
     <a href="index.html">水無月紫苑</a>
   </div>
 </div>
 
-<!-- 导航栏 -->
 <header>
   <nav class="main-nav">
     <a href="index.html" data-nav="home">首页</a>
-
     <div class="dropdown">
       <a class="dropbtn" data-nav="nonfiction">非虚构</a>
       <div class="dropdown-content">
@@ -30,46 +27,65 @@
         <a href="research.html" data-nav="research">研究</a>
       </div>
     </div>
-
     <a href="fiction.html" data-nav="fiction">虚构</a>
   </nav>
-
   <div class="lang-switcher">
-    <button class="lang-current">
-      <span class="lang-text">中文</span>
-      <span class="arrow">▼</span>
-    </button>
-    <div class="lang-dropdown">
-      <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
-      <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+    <div class="lang-switcher-inner">
+      <button class="lang-current">
+        <span class="lang-text">中文</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="lang-dropdown">
+        <button class="lang-option" data-lang-code="zh" onclick="setLang('zh')">中文 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="ja" onclick="setLang('ja')">日本語 <span class="check">✓</span></button>
+        <button class="lang-option" data-lang-code="en" onclick="setLang('en')">English <span class="check">✓</span></button>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
 
-<section>
-  <p data-lang="zh">
-    我的研究位于性别、政治思想史与东亚社会结构的交汇处，
-    尤其关注反殖民语境下的马克思主义与性别理论。
-  </p>
+  <section>
+    <p data-lang="zh">我的研究位于性别、政治思想史与东亚社会结构的交汇处，尤其关注反殖民语境下的马克思主义与性别理论。</p>
+    <p data-lang="ja">私の研究は、ジェンダー、政治思想史、東アジア社会構造の交差点に位置しています。特に反植民地主義文脈におけるマルクス主義とジェンダー理論を扱います。</p>
+    <p data-lang="en">My research lies at the intersection of gender studies, political thought, and East Asian social structures, with a focus on Marxism and gender theory in anti-colonial contexts.</p>
+  </section>
 
-  <p data-lang="ja">
-    私の研究は、ジェンダー、政治思想史、東アジア社会構造の交差点に位置しています。
-    特に反植民地主義文脈におけるマルクス主義とジェンダー理論を扱います。
-  </p>
-
-  <p data-lang="en">
-    My research lies at the intersection of gender studies,
-    political thought, and East Asian social structures,
-    with a focus on Marxism and gender theory in anti-colonial contexts.
-  </p>
-</section>
+  <section>
+    <h2>
+      <span data-lang="zh">研究列表</span>
+      <span data-lang="ja">研究一覧</span>
+      <span data-lang="en">Research</span>
+    </h2>
+    <div class="post-list" id="research-list"></div>
+  </section>
 
 </main>
 
 <footer>© 水無月紫苑</footer>
+
+<script src="research-content.js"></script>
+<script>
+function renderContent(lang) {
+  const container = document.getElementById('research-list');
+  if (!container) return;
+  const tags = window.RESEARCH_TAG_LABELS || {};
+  const articles = window.RESEARCH_ARTICLES || [];
+
+  container.innerHTML = articles.map(a => {
+    const tag   = tags[a.tag]?.[lang] ?? a.tag;
+    const title = (a[lang] || a.zh).title;
+    return `<article class="post-item">
+      <div class="post-meta">
+        <span class="post-date">${a.date}</span>
+        <span class="post-tag">${tag}</span>
+      </div>
+      <a class="post-title" href="article.html?id=${a.id}&type=research">${title}</a>
+    </article>`;
+  }).join('');
+}
+</script>
 <script src="lang.js"></script>
 </body>
 </html>
