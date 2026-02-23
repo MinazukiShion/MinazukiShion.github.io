@@ -1,9 +1,8 @@
 /* ============================================
    水無月紫苑 - Compact Academic Style
-   Inspired by ishiba.com minimalism
+   Fixed Interaction Version
    ============================================ */
 
-/* CSS Variables */
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: #12121a;
@@ -15,26 +14,18 @@
   --accent-gold: #d4a574;
   --border-color: #2a2a35;
   
-  /* Fonts */
   --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-en: "Inter", "SF Pro Display", -apple-system, sans-serif;
-  --font-mono: "SF Mono", monospace;
   
   --font-sans: var(--font-zh);
 }
 
-/* Language fonts */
 :lang(zh) { --font-sans: var(--font-zh); }
 :lang(ja) { --font-sans: var(--font-ja); }
 :lang(en) { --font-sans: var(--font-en); }
 
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -46,13 +37,11 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.75;
-  letter-spacing: 0.01em;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Selection */
 ::selection {
   background: var(--accent-purple);
   color: white;
@@ -62,7 +51,6 @@ body {
 h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
   margin: 0;
 }
 
@@ -77,55 +65,47 @@ h2 {
 p {
   margin-bottom: 1.25rem;
   line-height: 1.8;
-  color: var(--text-primary);
 }
 
-/* Links - flat style */
 a {
   color: var(--text-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.15s ease;
 }
 
 a:hover {
   color: var(--accent-purple);
 }
 
-/* Compact Header - ishiba style */
+/* Header - slightly taller for comfort */
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
-  padding: 0.75rem 2rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3.5rem;
+  height: 4rem;
 }
 
-/* Site title - left aligned */
 .site-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
-  white-space: nowrap;
-}
-
-.site-title a {
-  color: inherit;
+  flex-shrink: 0;
 }
 
 .site-title a:hover {
   color: var(--accent-purple);
 }
 
-/* Center Navigation */
+/* Navigation - click-based dropdown */
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -134,7 +114,7 @@ header {
 nav a {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
   position: relative;
   font-weight: 400;
 }
@@ -143,42 +123,69 @@ nav a:hover {
   color: var(--text-primary);
 }
 
-/* Active state indicator */
 nav a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: 0;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background: var(--accent-red);
-  transition: width 0.2s ease;
+  transition: width 0.15s ease;
 }
 
 nav a:hover::after {
   width: 100%;
 }
 
-/* Dropdown - minimal */
+/* Dropdown - click to toggle, not hover */
 .dropdown {
   position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropbtn::after {
+  content: ' ▾';
+  font-size: 0.7em;
+  opacity: 0.6;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: calc(100% + 0.75rem);
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  min-width: 140px;
-  padding: 0.25rem 0;
+  min-width: 160px;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* Show when active class present */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+/* Bridge gap with invisible area */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -0.75rem;
+  left: 0;
+  right: 0;
+  height: 0.75rem;
 }
 
 .dropdown-content a {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.25rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -189,27 +196,25 @@ nav a:hover::after {
   color: var(--text-primary);
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-/* Language Switcher - compact pill style */
+/* Language Switcher - click based */
 .lang-switcher {
   position: relative;
+  flex-shrink: 0;
 }
 
 .lang-current {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
   background: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 0.8rem;
-  border-radius: 2px;
-  transition: all 0.15s ease;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: all 0.1s ease;
+  user-select: none;
 }
 
 .lang-current:hover {
@@ -218,12 +223,14 @@ nav a:hover::after {
 }
 
 .lang-current:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
+  background: var(--bg-secondary);
 }
 
 .lang-current .arrow {
   font-size: 0.6rem;
   transition: transform 0.2s ease;
+  margin-left: 0.25rem;
 }
 
 .lang-switcher.active .arrow {
@@ -232,31 +239,45 @@ nav a:hover::after {
 
 .lang-dropdown {
   position: absolute;
-  top: calc(100% + 0.4rem);
+  top: calc(100% + 0.5rem);
   right: 0;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  border-radius: 2px;
-  min-width: 120px;
+  border-radius: 4px;
+  min-width: 140px;
+  padding: 0.25rem;
   display: none;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .lang-switcher.active .lang-dropdown {
   display: block;
 }
 
-.lang-option {
-  display: block;
+/* Bridge gap */
+.lang-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  right: 0;
   width: 100%;
-  padding: 0.6rem 0.75rem;
+  height: 0.5rem;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.6rem 1rem;
   background: transparent;
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-align: left;
-  transition: all 0.15s ease;
+  border-radius: 2px;
+  transition: all 0.1s ease;
 }
 
 .lang-option:hover {
@@ -266,9 +287,19 @@ nav a:hover::after {
 
 .lang-option.active {
   color: var(--accent-purple);
+  font-weight: 500;
 }
 
-/* Main Content - increased top padding for compact header */
+.lang-option .check {
+  opacity: 0;
+  font-size: 0.8rem;
+}
+
+.lang-option.active .check {
+  opacity: 1;
+}
+
+/* Main */
 main {
   max-width: 720px;
   margin: 0 auto;
@@ -277,22 +308,20 @@ main {
   width: 100%;
 }
 
-/* Sections - minimal decoration */
 section {
   margin-bottom: 3rem;
 }
 
-/* Greeting section - keep poetic style but cleaner */
+/* Keep poetic style for greeting */
 section:nth-of-type(2) p[data-lang="zh"],
 section:nth-of-type(2) p[data-lang="ja"] {
   color: var(--text-secondary);
-  font-size: 1rem;
   padding-left: 1rem;
-  border-left: 2px solid var(--accent-purple);
+  border-left: 3px solid var(--accent-purple);
   margin-bottom: 1.5rem;
 }
 
-/* Lists - clean */
+/* Lists */
 ul {
   list-style: none;
   padding: 0;
@@ -301,7 +330,7 @@ ul {
 
 ul li {
   margin-bottom: 0.75rem;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   position: relative;
 }
 
@@ -310,7 +339,6 @@ ul li::before {
   position: absolute;
   left: 0;
   color: var(--accent-red);
-  font-weight: 300;
 }
 
 ul li a {
@@ -321,24 +349,21 @@ ul li a:hover {
   color: var(--accent-purple);
 }
 
-/* Footer - minimal */
+/* Footer */
 footer {
   border-top: 1px solid var(--border-color);
-  padding: 1.5rem 2rem;
+  padding: 2rem;
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.8rem;
   margin-top: auto;
 }
 
-/* Responsive */
+/* Mobile */
 @media (max-width: 768px) {
   header {
-    padding: 0.75rem 1rem;
-    height: auto;
-    min-height: 3rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    padding: 0 1rem;
+    height: 3.5rem;
   }
   
   .main-nav {
@@ -348,24 +373,20 @@ footer {
     width: 100%;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 0.5rem;
+    display: none; /* Consider hamburger menu */
   }
   
   main {
     padding: 2rem 1rem;
   }
-  
-  h2 {
-    margin-top: 2rem;
-  }
 }
 
-/* Smooth transitions */
+/* Smooth lang switch */
 [data-lang] {
-  transition: opacity 0.2s ease;
+  transition: opacity 0.15s ease;
 }
 
-/* Scrollbar minimal */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -376,6 +397,7 @@ footer {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
