@@ -1,6 +1,5 @@
 /* ============================================
-   水無月紫苑 - Compact Academic Style
-   Fixed Hover Interactions
+   水無月紫苑 — Compact Academic Style
    ============================================ */
 
 :root {
@@ -13,12 +12,10 @@
   --accent-red: #dc2626;
   --accent-gold: #d4a574;
   --border-color: #2a2a35;
-  
+
   --font-zh: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  --font-en: "Inter", "SF Pro Display", -apple-system, sans-serif;
-  --font-mono: "SF Mono", monospace;
-  
+  --font-en: "Georgia", "Times New Roman", serif;
   --font-sans: var(--font-zh);
 }
 
@@ -48,7 +45,10 @@ body {
   color: white;
 }
 
-/* Typography */
+/* ============================================
+   Typography
+   ============================================ */
+
 h1 {
   font-size: 1.4rem;
   font-weight: 600;
@@ -57,7 +57,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin: 2.5rem 0 1rem 0;
   padding-bottom: 0.4rem;
@@ -80,7 +80,10 @@ a:hover {
   color: var(--accent-purple);
 }
 
-/* Compact Header */
+/* ============================================
+   Header
+   ============================================ */
+
 header {
   position: sticky;
   top: 0;
@@ -104,7 +107,14 @@ header {
   color: inherit;
 }
 
-/* Navigation - with hover bridge */
+.site-title a:hover {
+  color: var(--accent-purple);
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
 .main-nav {
   display: flex;
   align-items: center;
@@ -127,39 +137,64 @@ nav a:hover {
   color: var(--text-primary);
 }
 
-/* Dropdown - Fixed hover with intent delay */
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-red);
+  transition: width 0.15s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   Dropdown (hover-based with invisible bridge)
+   ============================================ */
+
 .dropdown {
   position: relative;
-  padding-bottom: 1rem; /* Bridge to dropdown */
-  margin-bottom: -1rem; /* Compensate spacing */
+  padding-bottom: 1rem;
+  margin-bottom: -1rem;
+}
+
+.dropbtn {
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropbtn::after {
+  content: ' ▾';
+  font-size: 0.7em;
+  opacity: 0.6;
 }
 
 .dropdown-content {
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-5px);
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   min-width: 160px;
   padding: 0.5rem 0;
   border-radius: 2px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  
-  /* Hover intent: delay appearance */
+
   visibility: hidden;
   opacity: 0;
-  transition: 
-    visibility 0s linear 0.2s,
-    opacity 0.2s ease,
-    transform 0.2s ease;
-  transform: translateX(-50%) translateY(-5px);
+  transition:
+    visibility 0s linear 0.15s,
+    opacity 0.15s ease,
+    transform 0.15s ease;
   pointer-events: none;
 }
 
-/* Show dropdown on hover with delay */
-.dropdown:hover .dropdown-content,
-.dropdown-content:hover {
+.dropdown:hover .dropdown-content {
   visibility: visible;
   opacity: 1;
   transform: translateX(-50%) translateY(0);
@@ -167,7 +202,7 @@ nav a:hover {
   pointer-events: auto;
 }
 
-/* Extended hover area (invisible bridge) */
+/* Invisible bridge */
 .dropdown::after {
   content: '';
   position: absolute;
@@ -180,7 +215,7 @@ nav a:hover {
 
 .dropdown-content a {
   display: block;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.25rem;
   font-size: 0.85rem;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -190,14 +225,18 @@ nav a:hover {
 .dropdown-content a:hover {
   background: var(--bg-tertiary);
   color: var(--text-primary);
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
 }
 
-/* Language Switcher - Fixed hover */
+/* ============================================
+   Language Switcher (hover-based with invisible bridge)
+   ============================================ */
+
 .lang-switcher {
   position: relative;
   padding-bottom: 1rem;
   margin-bottom: -1rem;
+  flex-shrink: 0;
 }
 
 .lang-current {
@@ -212,6 +251,7 @@ nav a:hover {
   font-size: 0.8rem;
   border-radius: 2px;
   transition: all 0.15s ease;
+  user-select: none;
 }
 
 .lang-current:hover,
@@ -221,7 +261,7 @@ nav a:hover {
 }
 
 .lang-current:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .lang-current .arrow {
@@ -240,24 +280,21 @@ nav a:hover {
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 2px;
-  min-width: 120px;
-  padding: 0.25rem 0;
+  min-width: 130px;
+  padding: 0.25rem;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  
-  /* Hover intent */
+
   visibility: hidden;
   opacity: 0;
-  transition: 
+  transform: translateY(-5px);
+  transition:
     visibility 0s linear 0.15s,
     opacity 0.15s ease,
     transform 0.15s ease;
-  transform: translateY(-5px);
   pointer-events: none;
 }
 
-/* Show on hover with bridge */
-.lang-switcher:hover .lang-dropdown,
-.lang-dropdown:hover {
+.lang-switcher:hover .lang-dropdown {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -265,7 +302,7 @@ nav a:hover {
   pointer-events: auto;
 }
 
-/* Invisible bridge for lang switcher */
+/* Invisible bridge */
 .lang-switcher::after {
   content: '';
   position: absolute;
@@ -277,16 +314,19 @@ nav a:hover {
 }
 
 .lang-option {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 0.6rem 0.9rem;
   background: transparent;
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   text-align: left;
-  transition: all 0.15s ease;
+  border-radius: 2px;
+  transition: all 0.1s ease;
 }
 
 .lang-option:hover {
@@ -296,25 +336,39 @@ nav a:hover {
 
 .lang-option.active {
   color: var(--accent-purple);
+  font-weight: 500;
 }
 
-/* Main Content */
+.lang-option .check {
+  opacity: 0;
+  font-size: 0.75rem;
+}
+
+.lang-option.active .check {
+  opacity: 1;
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+
 main {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 2.5rem 2rem 4rem;
+  padding: 2.5rem 2rem 5rem;
   flex: 1;
   width: 100%;
 }
 
-/* Sections */
 section {
   margin-bottom: 2.5rem;
 }
 
-/* Keep poetic style for greeting */
+/* Poetic left-border for greeting section */
 section:nth-of-type(2) p[data-lang="zh"],
-section:nth-of-type(2) p[data-lang="ja"] {
+section:nth-of-type(2) p[data-lang="ja"],
+section:nth-of-type(2) div[data-lang="zh"] p,
+section:nth-of-type(2) div[data-lang="ja"] p {
   color: var(--text-secondary);
   font-size: 0.95rem;
   padding-left: 1rem;
@@ -322,7 +376,10 @@ section:nth-of-type(2) p[data-lang="ja"] {
   margin-bottom: 1.25rem;
 }
 
-/* Lists */
+/* ============================================
+   Lists
+   ============================================ */
+
 ul {
   list-style: none;
   padding: 0;
@@ -331,7 +388,7 @@ ul {
 
 ul li {
   margin-bottom: 0.75rem;
-  padding-left: 1rem;
+  padding-left: 1.25rem;
   position: relative;
 }
 
@@ -351,28 +408,52 @@ ul li a:hover {
   color: var(--accent-purple);
 }
 
-/* Footer */
+/* ============================================
+   Footer
+   ============================================ */
+
 footer {
   border-top: 1px solid var(--border-color);
-  padding: 1.25rem 2rem;
+  padding: 1.5rem 2rem;
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.8rem;
   margin-top: auto;
 }
 
-/* Responsive */
+/* ============================================
+   Language Content Visibility
+   ============================================ */
+
+[data-lang] {
+  display: none;
+  animation: fadeIn 0.25s ease;
+}
+
+[data-lang].active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
 @media (max-width: 768px) {
   header {
     padding: 0 1rem;
     height: auto;
-    min-height: 2.5rem;
+    min-height: 2.75rem;
     flex-wrap: wrap;
     gap: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  
+
   .main-nav {
     position: static;
     transform: none;
@@ -382,362 +463,22 @@ footer {
     gap: 1.5rem;
     margin-top: 0.25rem;
   }
-  
+
   .dropdown {
     padding-bottom: 0.5rem;
     margin-bottom: -0.5rem;
   }
-  
+
   main {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 3rem;
   }
 }
 
-/* Language content transitions */
-[data-lang] {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
+/* ============================================
+   Scrollbar
+   ============================================ */
 
-[data-lang].active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-purple);
-}  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4rem;
-}
-
-.site-title {
-  font-size: 1rem;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.site-title a:hover {
-  color: var(--accent-purple);
-}
-
-/* Navigation - click-based dropdown */
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-nav a {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  padding: 0.5rem 0;
-  position: relative;
-  font-weight: 400;
-}
-
-nav a:hover {
-  color: var(--text-primary);
-}
-
-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent-red);
-  transition: width 0.15s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* Dropdown - click to toggle, not hover */
-.dropdown {
-  position: relative;
-}
-
-.dropbtn {
-  cursor: pointer;
-  user-select: none;
-}
-
-.dropbtn::after {
-  content: ' ▾';
-  font-size: 0.7em;
-  opacity: 0.6;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  min-width: 160px;
-  padding: 0.5rem 0;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-
-/* Show when active class present */
-.dropdown.active .dropdown-content {
-  display: block;
-}
-
-/* Bridge gap with invisible area */
-.dropdown-content::before {
-  content: '';
-  position: absolute;
-  top: -0.75rem;
-  left: 0;
-  right: 0;
-  height: 0.75rem;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  white-space: nowrap;
-}
-
-.dropdown-content a:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-/* Language Switcher - click based */
-.lang-switcher {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.lang-current {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 0.85rem;
-  border-radius: 4px;
-  transition: all 0.1s ease;
-  user-select: none;
-}
-
-.lang-current:hover {
-  border-color: var(--accent-purple);
-  color: var(--text-primary);
-}
-
-.lang-current:active {
-  transform: scale(0.97);
-  background: var(--bg-secondary);
-}
-
-.lang-current .arrow {
-  font-size: 0.6rem;
-  transition: transform 0.2s ease;
-  margin-left: 0.25rem;
-}
-
-.lang-switcher.active .arrow {
-  transform: rotate(180deg);
-}
-
-.lang-dropdown {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  min-width: 140px;
-  padding: 0.25rem;
-  display: none;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-
-.lang-switcher.active .lang-dropdown {
-  display: block;
-}
-
-/* Bridge gap */
-.lang-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -0.5rem;
-  right: 0;
-  width: 100%;
-  height: 0.5rem;
-}
-
-.lang-option {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.6rem 1rem;
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 0.85rem;
-  text-align: left;
-  border-radius: 2px;
-  transition: all 0.1s ease;
-}
-
-.lang-option:hover {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-}
-
-.lang-option.active {
-  color: var(--accent-purple);
-  font-weight: 500;
-}
-
-.lang-option .check {
-  opacity: 0;
-  font-size: 0.8rem;
-}
-
-.lang-option.active .check {
-  opacity: 1;
-}
-
-/* Main */
-main {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 3rem 2rem 4rem;
-  flex: 1;
-  width: 100%;
-}
-
-section {
-  margin-bottom: 3rem;
-}
-
-/* Keep poetic style for greeting */
-section:nth-of-type(2) p[data-lang="zh"],
-section:nth-of-type(2) p[data-lang="ja"] {
-  color: var(--text-secondary);
-  padding-left: 1rem;
-  border-left: 3px solid var(--accent-purple);
-  margin-bottom: 1.5rem;
-}
-
-/* Lists */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0;
-}
-
-ul li {
-  margin-bottom: 0.75rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-ul li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent-red);
-}
-
-ul li a {
-  color: var(--accent-gold);
-}
-
-ul li a:hover {
-  color: var(--accent-purple);
-}
-
-/* Footer */
-footer {
-  border-top: 1px solid var(--border-color);
-  padding: 2rem;
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  margin-top: auto;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  header {
-    padding: 0 1rem;
-    height: 3.5rem;
-  }
-  
-  .main-nav {
-    position: static;
-    transform: none;
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 1.5rem;
-    display: none; /* Consider hamburger menu */
-  }
-  
-  main {
-    padding: 2rem 1rem;
-  }
-}
-
-/* Smooth lang switch */
-[data-lang] {
-  transition: opacity 0.15s ease;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-purple);
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); }
