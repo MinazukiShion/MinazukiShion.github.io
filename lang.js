@@ -1,7 +1,7 @@
 const langConfig = {
-  zh: { code: 'zh', label: '中文', nav: { home: '首页', nonfiction: '非虚构', fiction: '虚构', policy: '政策', research: '研究' } },
-  ja: { code: 'ja', label: '日本語', nav: { home: 'ホーム', nonfiction: 'ノンフィクション', fiction: '創作', policy: '政策', research: '研究' } },
-  en: { code: 'en', label: 'EN', nav: { home: 'Home', nonfiction: 'Non-Fiction', fiction: 'Fiction', policy: 'Policy', research: 'Research' } }
+  zh: { label: '中文', nav: { home: '首页', nonfiction: '非虚构', fiction: '虚构', policy: '政策', research: '研究' }},
+  ja: { label: '日本語', nav: { home: 'ホーム', nonfiction: 'ノンフィクション', fiction: '創作', policy: '政策', research: '研究' }},
+  en: { label: 'EN', nav: { home: 'Home', nonfiction: 'Non-Fiction', fiction: 'Fiction', policy: 'Policy', research: 'Research' }}
 };
 
 let currentLang = 'zh';
@@ -10,12 +10,15 @@ function setLang(lang) {
   if (!langConfig[lang]) return;
   currentLang = lang;
   
+  // Update HTML lang
   document.documentElement.lang = lang === 'ja' ? 'ja' : lang === 'zh' ? 'zh-CN' : 'en';
   
+  // Update content visibility using class
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+    el.classList.toggle('active', el.dataset.lang === lang);
   });
   
+  // Update UI
   updateLangSwitcher();
   updateNav();
   updateTitle();
@@ -27,16 +30,13 @@ function updateLangSwitcher() {
   const config = langConfig[currentLang];
   const btn = document.querySelector('.lang-current');
   if (btn) {
-    const text = btn.querySelector('.lang-text') || btn;
-    text.childNodes[0].textContent = config.label + ' ';
+    // Keep arrow, update text only
+    const arrow = btn.querySelector('.arrow');
+    btn.innerHTML = `${config.label} ${arrow ? arrow.outerHTML : '<span class="arrow">▼</span>'}`;
   }
   
   document.querySelectorAll('.lang-option').forEach(opt => {
-    const isActive = opt.dataset.langCode === currentLang;
-    opt.classList.toggle('active', isActive);
-    opt.innerHTML = isActive 
-      ? `${langConfig[opt.dataset.langCode].label} <span class="check">✓</span>`
-      : langConfig[opt.dataset.langCode].label;
+    opt.classList.toggle('active', opt.dataset.langCode === currentLang);
   });
 }
 
@@ -56,40 +56,9 @@ function updateTitle() {
   };
   
   const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
-  const title = titles[currentLang][page];
-  document.title = title + (page === 'index' ? '' : '｜' + titles[currentLang].index);
+  const t = titles[currentLang];
+  document.title = t[page] + (page === 'index' ? '' : '｜' + t.index);
 }
-
-// Click outside to close dropdowns
-document.addEventListener('click', (e) => {
-  // Language switcher
-  const langSwitcher = document.querySelector('.lang-switcher');
-  if (langSwitcher) {
-    if (e.target.closest('.lang-switcher')) {
-      if (e.target.closest('.lang-current')) {
-        langSwitcher.classList.toggle('active');
-      }
-    } else {
-      langSwitcher.classList.remove('active');
-    }
-  }
-  
-  // Nav dropdowns
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach(drop => {
-    if (e.target.closest('.dropdown') === drop) {
-      if (e.target.closest('.dropbtn')) {
-        // Close others
-        dropdowns.forEach(d => {
-          if (d !== drop) d.classList.remove('active');
-        });
-        drop.classList.toggle('active');
-      }
-    } else {
-      drop.classList.remove('active');
-    }
-  });
-});
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
