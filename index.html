@@ -10,10 +10,29 @@
 <body>
 
 <header>
-  <div class="lang">
-    <button onclick="setLang('zh')">中</button>
-    <button onclick="setLang('ja')">日</button>
-    <button onclick="setLang('en')">EN</button>
+  <div class="lang-switcher">
+    <button class="lang-current">
+      <span class="lang-flag">🇨🇳</span>
+      <span class="lang-code">ZH</span>
+      <span class="arrow">▼</span>
+    </button>
+    <div class="lang-dropdown">
+      <button class="lang-option" data-lang-code="zh">
+        <span class="lang-flag">🇨🇳</span>
+        <span class="lang-label">中文</span>
+        <span class="lang-code">ZH</span>
+      </button>
+      <button class="lang-option" data-lang-code="ja">
+        <span class="lang-flag">🇯🇵</span>
+        <span class="lang-label">日本語</span>
+        <span class="lang-code">JA</span>
+      </button>
+      <button class="lang-option" data-lang-code="en">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-label">English</span>
+        <span class="lang-code">EN</span>
+      </button>
+    </div>
   </div>
 
   <h1>
@@ -22,19 +41,19 @@
     <span data-lang="en">Shion Minazuki</span>
   </h1>
 
-<nav class="main-nav">
-  <a href="index.html">Home</a>
+  <nav class="main-nav">
+    <a href="index.html" data-nav="home">首页</a>
 
-  <div class="dropdown">
-    <a href="nonfiction.html" class="dropbtn">Non-Fiction</a>
-    <div class="dropdown-content">
-      <a href="policy.html">Policy</a>
-      <a href="research.html">Research</a>
+    <div class="dropdown">
+      <a href="nonfiction.html" class="dropbtn" data-nav="nonfiction">非虚构</a>
+      <div class="dropdown-content">
+        <a href="policy.html" data-nav="policy">政策</a>
+        <a href="research.html" data-nav="research">研究</a>
+      </div>
     </div>
-  </div>
 
-  <a href="fiction.html">Fiction</a>
-</nav>
+    <a href="fiction.html" data-nav="fiction">虚构创作</a>
+  </nav>
 </header>
 
 <main>
