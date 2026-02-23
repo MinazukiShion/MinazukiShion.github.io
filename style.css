@@ -1,42 +1,57 @@
 body {
+  font-family: "Noto Sans", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               "Hiragino Sans", "Yu Gothic", sans-serif;
-  background-color: #f7f7f7;
-  color: #222;
+  background: #fff;
+  color: #111;
+  line-height: 1.8;
 }
 
-.container {
-  max-width: 720px;
-  margin: 80px auto;
-  padding: 0 20px;
-  line-height: 1.9;
+header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ccc;
 }
 
 h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.2em;
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
 }
 
-.subtitle {
-  color: #555;
-  font-size: 0.95em;
+nav a {
+  margin-right: 1rem;
+  color: #111;
+  text-decoration: none;
 }
 
-h2 {
-  margin-top: 60px;
-  font-size: 1.3em;
-}
-
-p {
-  margin-bottom: 1.2em;
-}
-
-a {
-  color: #222;
+nav a:hover {
   text-decoration: underline;
 }
 
-a:hover {
-  opacity: 0.7;
+.lang {
+  float: right;
+}
+
+.lang button {
+  margin-left: 0.4rem;
+  background: none;
+  border: 1px solid #aaa;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+main {
+  max-width: 820px;
+  margin: auto;
+  padding: 2rem 1.5rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
 }
