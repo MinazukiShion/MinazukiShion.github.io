@@ -4,37 +4,376 @@
   <meta charset="UTF-8">
   <title>水無月紫苑 / Shion Minazuki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <style>
+    /* ============================================
+       水無月紫苑 - Minimal Academic
+       ============================================ */
+    
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-secondary: #666;
+      --accent: #7c3aed;
+      --accent-red: #dc2626;
+      --border: #e5e5e5;
+      --font: -apple-system, BlinkMacSystemFont, "Noto Sans SC", "Noto Sans JP", "Segoe UI", sans-serif;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Compact Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(250,250,250,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3rem;
+      z-index: 100;
+    }
+
+    .site-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .site-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* Center Nav */
+    nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Language Switcher - Fixed Hover */
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border-radius: 3px;
+      color: var(--text-secondary);
+    }
+
+    .lang-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 0.4rem);
+      right: 0;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-width: 100px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-5px);
+      transition: all 0.15s ease;
+    }
+
+    .lang-switcher:hover .lang-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Bridge for hover */
+    .lang-switcher::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 0.5rem;
+    }
+
+    .lang-option {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      border: none;
+      background: transparent;
+      text-align: left;
+      font-size: 0.8rem;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    .lang-option:hover {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .lang-option.active {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Language content control */
+    [data-lang] {
+      display: none;
+    }
+
+    [data-lang].active {
+      display: block;
+    }
+
+    /* Special styling for greeting */
+    .greeting p[data-lang="zh"],
+    .greeting p[data-lang="ja"] {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav { display: none; }
+      header { justify-content: space-between; }
+    }
+  </style>
+</head>
 <body>
 
 <header>
   <div class="site-title">
-    <a href="index.html">
-      <span data-lang="zh">水無月紫苑</span>
-      <span data-lang="ja">水無月紫苑</span>
-      <span data-lang="en">Shion Minazuki</span>
-    </a>
+    <a href="#" onclick="setLang('zh')">水無月紫苑</a>
   </div>
-
-  <nav class="main-nav">
-    <a href="index.html" data-nav="home">首页</a>
-    
-    <div class="dropdown">
-      <a class="dropbtn" data-nav="nonfiction">非虚构</a>
-      <div class="dropdown-content">
-        <a href="policy.html" data-nav="policy">政策</a>
-        <a href="research.html" data-nav="research">研究</a>
-      </div>
-    </div>
-    
-    <a href="fiction.html" data-nav="fiction">虚构</a>
+  
+  <nav>
+    <a href="#" data-nav="nonfiction">非虚构</a>
+    <a href="#" data-nav="fiction">虚构</a>
   </nav>
 
   <div class="lang-switcher">
-    <button class="lang-current">
-      <span class="lang-text">中文 </span>
+    <button class="lang-btn">
+      <span id="current-lang">中文</span>
+      <span>▼</span>
+    </button>
+    <div class="lang-dropdown">
+      <button class="lang-option" onclick="setLang('zh')">中文</button>
+      <button class="lang-option" onclick="setLang('ja')">日本語</button>
+      <button class="lang-option" onclick="setLang('en')">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Profile -->
+  <section>
+    <h2>
+      <span data-lang="zh">自我介绍</span>
+      <span data-lang="ja">プロフィール</span>
+      <span data-lang="en">Profile</span>
+    </h2>
+    
+    <p data-lang="zh">
+      我是水無月紫苑，来自东亚的跨性别女性，同时也是岚桜政策研究会的创始人之一。
+      我的研究与创作关注性别、政治、文化和生态，
+      尤其聚焦于东亚语境中的反殖民主义与马克思主义。
+    </p>
+    
+    <p data-lang="ja">
+      私は水無月紫苑、東アジア出身のトランスジェンダー女性であり、
+      嵐桜政策研究会の創設者の一人です。
+      私の研究と創作は、ジェンダー・政治・文化・エコロジーを横断し、
+      とりわけ東アジア文脈における反植民地主義とマルクス主義に焦点を当てています。
+    </p>
+    
+    <p data-lang="en">
+      I am Shion Minazuki, a transgender woman from East Asia and one of the founders
+      of the Ranzakura Policy Research Group.
+      My work explores gender, politics, culture, and ecology,
+      with a particular focus on anti-colonialism and Marxism in East Asian contexts.
+    </p>
+  </section>
+
+  <!-- Greeting -->
+  <section class="greeting">
+    <h2>
+      <span data-lang="zh">问候</span>
+      <span data-lang="ja">ご挨拶</span>
+      <span data-lang="en">Greeting</span>
+    </h2>
+    
+    <div data-lang="zh">
+      <p>为什么要从事政治研究呢。</p>
+      <p>一开始只是被人说"可以试试看"，就去做了。</p>
+      <p>后来走了很多地方，听了很多故事，发现很多人的生活里，<br>
+      都有无法被好好说出来的不幸和痛苦。<br>
+      在那些时刻，我不断地感受到——<br>
+      原来大家也都有着和我相似的苦恼与创伤。</p>
+      <p>既然已经看见了，就很难再假装没有看见过。<br>
+      我相信，政治的使命，是勇敢且真诚地说出真相。<br>
+      我也相信，所谓政治，是让所有国民能够平等地得到恩惠的事业。</p>
+      <p>所以想试着，为那些不太能发声的人，说一点点话。<br>
+      也希望政治能够始终怀有对人民的敬畏之心，<br>
+      知道谁在哪里、为什么感到难过，并且愿意一起哭泣。</p>
+    </div>
+    
+    <div data-lang="ja">
+      <p>なぜ政治研究に携わるのか。</p>
+      <p>最初は「試してみたらどうか」と言われ、やってみただけでした。</p>
+      <p>しかし各地を歩き、多くの話を聞く中で、<br>
+      人々の生活には言葉にされにくい不幸や痛みが<br>
+      確かに存在していることを知りました。<br>
+      そのたびに、私自身と似た苦悩や傷が<br>
+      そこにあるのだと感じ続けてきました。</p>
+      <p>一度見てしまったものを、<br>
+      見なかったことにはできません。<br>
+      私は、政治の使命とは、<br>
+      真実を勇気と誠実さをもって語ることだと信じています。<br>
+      また政治とは、<br>
+      すべての人が等しく恩恵を受けられる営みであるべきだとも考えています。</p>
+      <p>だからこそ、声を上げにくい人々のために、<br>
+      少しでも言葉を紡ぎたいと思いました。<br>
+      そして政治が常に人民への畏敬を忘れず、<br>
+      誰がどこで、なぜ悲しんでいるのかを知り、<br>
+      ともに涙を流せるものであってほしいと願っています。</p>
+    </div>
+    
+    <div data-lang="en">
+      <p>Why engage in political research?</p>
+      <p>At first, it was simply because someone suggested I try.</p>
+      <p>As I traveled, listened, and observed,<br>
+      I came to realize how many lives are marked by unspoken pain and quiet suffering.<br>
+      Again and again, I felt that these struggles were not so different from my own.</p>
+      <p>Once seen, such realities cannot be unseen.<br>
+      I believe the task of politics is to speak the truth with courage and sincerity,<br>
+      and that politics should be an endeavor through which all people<br>
+      may share in its benefits equally.</p>
+      <p>For this reason, I wish to speak—if only a little—<br>
+      on behalf of those whose voices are difficult to hear,<br>
+      and to hope that politics may always retain a sense of reverence for the people,<br>
+      knowing who is hurting, where, and why,<br>
+      and being willing to grieve together.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>
+      <span data-lang="zh">官方账号</span>
+      <span data-lang="ja">公式アカウント</span>
+      <span data-lang="en">Official Account</span>
+    </h2>
+    <p>
+      <a href="https://bsky.app/profile/shionminazuki.bsky.social" target="_blank">
+        Bluesky｜@shionminazuki.bsky.social
+      </a>
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 水無月紫苑 / Shion Minazuki
+</footer>
+
+<script>
+const langNames = { zh: '中文', ja: '日本語', en: 'English' };
+
+function setLang(lang) {
+  // Update active content
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('active', el.dataset.lang === lang);
+  });
+  
+  // Update button text
+  document.getElementById('current-lang').textContent = langNames[lang];
+  
+  // Update active state in dropdown
+  document.querySelectorAll('.lang-option').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === langNames[lang]);
+  });
+  
+  // Save preference
+  localStorage.setItem('lang', lang);
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('lang') || 'zh';
+  setLang(saved);
+});
+</script>
+
+</body>
+</html>      <span class="lang-text">中文 </span>
       <span class="arrow">▼</span>
     </button>
     <div class="lang-dropdown">
