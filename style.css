@@ -440,6 +440,32 @@ section:nth-of-type(2) div[data-lang="ja"] p {
    Policy 政见放送
    ============================================ */
 
+/* 政策导言 — 紫线格式，同主页问候 */
+.policy-intro p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-purple);
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+/* 政策主张大标题居中 */
+.policy-section-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* h3板块标题比policy-item-title大一档 */
+.policy-section h3 {
+  font-family: var(--font-mincho);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin: 3rem 0 1rem;
+  color: var(--text-primary);
+}
+
 .policy-list { display: flex; flex-direction: column; }
 
 .policy-item {
