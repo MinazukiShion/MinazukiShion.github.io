@@ -421,8 +421,7 @@ section:nth-of-type(2) div[data-lang="ja"] p {
 
 .article-body h2 { font-size: 1.05rem; margin-top: 2.5rem; }
 .article-body h3 { font-size: 0.97rem; margin-top: 1.8rem; }
-.article-body p { margin-bottom: 1.3rem; color: var(--text-secondary); }
-.article-body p:first-child { color: var(--text-primary); }
+.article-body p { margin-bottom: 1.3rem; color: var(--text-primary); }
 
 .article-back {
   display: inline-flex;
