@@ -130,12 +130,12 @@ function renderArticle(lang) {
   const type = params.get('type') || 'research'; // fiction | research
 
   const articles = type === 'fiction'
-    ? (window.FICTION_ARTICLES || [])
-    : (window.RESEARCH_ARTICLES || []);
+    ? (typeof FICTION_ARTICLES !== 'undefined' ? FICTION_ARTICLES : [])
+    : (typeof RESEARCH_ARTICLES !== 'undefined' ? RESEARCH_ARTICLES : []);
 
   const tagLabels = type === 'fiction'
-    ? (window.FICTION_TAG_LABELS || {})
-    : (window.RESEARCH_TAG_LABELS || {});
+    ? (typeof FICTION_TAG_LABELS !== 'undefined' ? FICTION_TAG_LABELS : {})
+    : (typeof RESEARCH_TAG_LABELS !== 'undefined' ? RESEARCH_TAG_LABELS : {});
 
   const article = articles.find(a => a.id === id);
 
