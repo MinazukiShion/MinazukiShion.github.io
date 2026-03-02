@@ -70,8 +70,8 @@
 function renderContent(lang) {
   const container = document.getElementById('research-list');
   if (!container) return;
-  const tags = window.RESEARCH_TAG_LABELS || {};
-  const articles = window.RESEARCH_ARTICLES || [];
+  const tags = RESEARCH_TAG_LABELS || {};
+  const articles = RESEARCH_ARTICLES || [];
 
   container.innerHTML = articles.map(a => {
     const tag   = tags[a.tag]?.[lang] ?? a.tag;
