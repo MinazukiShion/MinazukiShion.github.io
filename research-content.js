@@ -71,6 +71,55 @@ So we have to do it ourselves. Solidarity over division. Tolerance over antagoni
     }
   },
 
+   
+  {
+    id: 'mamdani-trans-rights-democracy',
+    date: '2026.03',
+    tag: 'politics',
+    zh: {
+      title: '全世界都期待着马穆达尼君的回应',
+      body: `全世界都期待着马穆达尼君的回应。
+
+国家是国民的国家。事实上，国民心中所谓国家的概念，来源于文化·风土与国民的自发连带互助，来源于国民亲身生活其中的社群。因此政治家必须要做出选择——是站在国民的一边，还是国家机器的一边。如果站在国家机器的那一边，那么再好的国家机器，也必须压制国民实际生活其中的社群与共同体，才能以自己取代国民心目中的国家。因此，这样屈从国家机器的政治家，应该受到国民共同的批判。跨性别者作为国民存在着，所以可以说，跨性别者基于对身体主权的正当要求做出的反抗，正是对所有国家机器的专断统制的直接反抗——所谓多样性并不是国家恩赐的，而是国民和国土本身的属性。政治家若没有这样的认识，就会产生错误的期待，期待着财阀和权门醍醐灌顶、幡然悔悟，或是期待着某位英雄突然降临拯救国民。这种观念必然会对国民造成确实的危害，甚至破坏国民已经结成的共同体。因此，真正的民主政治，必须真正为国民提供均等的恩惠，这才是政治的根本。这当中自然也包括对先前被广泛歧视压迫的跨性别群体的支援。
+
+美利坚的国民和全世界的民众，都对纽约市长马穆达尼君寄予厚望——他的竞选公约中，正是把这项政策列为最优先事务之一，坐在这些破旧立新的政策的核心位置。从这个角度来说，马穆达尼君，是一位全美国、乃至全世界都寄予厚望的人才。
+
+然而，目前面对特朗普氏的政治压力，马穆达尼君未能尽到对策的责任。自当选以降，纽约的主要医疗设施，都被迫停止了对跨性别者的服务和关照。跨性别者作为国民的利益，被特朗普氏的政策公然剥夺了。何况，青年如果不能基于对人权的保护而安全自由的成长，便不可能拥有身心完整而成熟的国民。而这一政策致使跨性别青年成长所必须的医疗照护和身体主权被公然剥夺，是对国民主权和民主主义的公然否定。面对跨性别青年们确实面临着的荷尔蒙中断、心理崩溃、乃至自杀风险的急迫危机，说「我做不到」，绝不是一个政治家应该做的事情。
+
+田中角荣先生曾这样说过：「政治是必须悬命工作的事业，必须以赌上性命的觉悟去改变，才能不辜负国民的信赖和期待。」正是因为国民自身若不团结起来便无力与财阀和权门的国家暴力对抗，才需要政治家为国民发声，为国民的利益坚决战斗，为国民的福祉努力工作。因此，面对国民的痛苦，政治家绝不能退转，必须尽力对一切结构性不公予以公然对峙。政治应该是国民中心的而不是国家中心的，国家是国民的国家，这是国民主权的基本原则。因此，政治家绝不能对这种国家暴力说yes。国民信赖着他的承诺，期待着他的行动——国民期待着他严肃遂行自己对跨性别者的承诺，国民希望以此为原点，真正得以战胜特朗普氏的剧场政治，恢复正当的政治伦理。然而，马穆达尼君却因为诸多原因不断退转，至今并未实现任何竞选承诺，也未能依据现有的法律和授权采取任何实质行动以减少相关危害，甚至产生了「马穆达尼君，已经不是国民的马穆达尼，而是国家的马穆达尼」这样的风闻，令人深感不安。
+
+我依稀记得，小时候的我所了解的纽约，是一座「所有人都能得到尊严和成功的城市」，是「可以包容所有不同的人的国土」，是作为多元文化主义的表率而存在着的城市。请马穆达尼君务必要好好守护纽约市的这份骄傲，好好守护对马穆达尼君寄予了极大期待的纽约的市民、美利坚的国民、和全世界的人民。`
+    },
+    ja: {
+      title: '全世界がマムダニ君の応答を待ち望んでいる',
+      body: `全世界がマムダニ君の応答を待ち望んでいる。
+
+国家は国民の国家である。事実、国民が心に抱く国家という概念は、文化・風土と国民の自発的な連帯と互助から生まれ、国民が実際に暮らすコミュニティから生まれるものだ。それゆえ政治家は選択をしなければならない——国民の側に立つのか、それとも国家機器の側に立つのか。国家機器の側に立つならば、いかに優れた国家機器であっても、国民が実際に暮らすコミュニティと共同体を抑圧することなしに、国民の心の中にある国家に成り代わることはできない。したがって、このように国家機器に屈従する政治家は、国民の共同の批判を受けるべきである。トランスジェンダーの人々は国民として存在している。それゆえ、トランスジェンダーの人々が身体的主権への正当な要求に基づいて行う抵抗は、あらゆる国家機器の専断的支配への直接の抵抗であると言える——多様性とは国家から恩賜されるものではなく、国民と国土そのものの属性なのだ。政治家にこのような認識がなければ、財閥や権門が改心・翻意することへの期待や、どこかの英雄が突然現れて国民を救ってくれるという誤った期待を抱くことになる。このような観念は必然的に国民に実質的な危害をもたらし、国民がすでに形成してきた共同体すら破壊しかねない。したがって、真の民主政治とは、真に国民に均等な恩恵をもたらすものでなければならない——それこそが政治の根本である。これにはもちろん、かつて広く差別・抑圧されてきたトランスジェンダーの人々への支援も含まれる。
+
+アメリカの国民と世界中の人々は、ニューヨーク市長マムダニ君に大きな期待を寄せている——彼の選挙公約において、この政策こそが最優先事項のひとつとして掲げられていた。マムダニ君はまさにこれらの刷新的な政策の核心に座る人物として、全米、そして全世界が大きな期待を寄せる存在である。
+
+しかし現在、トランプ氏の政治的圧力を前に、マムダニ君は対策を講じる責任を果たせていない。当選以来、ニューヨークの主要医療施設はトランスジェンダーの人々へのサービスと医療的配慮を停止せざるを得なくなった。国民としてのトランスジェンダーの人々の利益が、トランプ氏の政策によって公然と剥奪されているのだ。そもそも、人権の保護のもとで安全に自由に成長できなければ、心身ともに健全で成熟した国民は育たない。この政策はトランスジェンダーの青年たちが成長するために不可欠な医療ケアと身体的主権を公然と剥奪するものであり、国民主権と民主主義への公然たる否定である。ホルモン療法の中断、精神的崩壊、さらには自殺のリスクという切迫した危機に直面しているトランスジェンダーの青年たちを前に、「私にはできない」と言うことは、政治家として決してあってはならないことだ。
+
+田中角栄先生はかつてこう語った。「政治は命懸けで取り組むべき事業であり、命を賭ける覚悟で変えてこそ、国民の信頼と期待に応えることができる。」国民自身が団結しなければ財閥や権門の国家暴力に対抗する力を持てないからこそ、政治家が国民のために声を上げ、国民の利益のために断固として戦い、国民の福祉のために力を尽くすことが求められるのだ。それゆえ、国民の苦しみを前にして政治家は決して退いてはならず、あらゆる構造的不公正に対して公然と立ち向かわなければならない。政治は国家中心ではなく国民中心であるべきだ——国家は国民の国家である、これが国民主権の基本原則だ。それゆえ政治家は、このような国家暴力にイエスと言ってはならない。国民は彼の公約を信頼し、行動を待ち望んでいる——国民はマムダニ君がトランスジェンダーの人々への公約を厳粛に遂行することを期待し、それを原点として、真にトランプ氏の劇場政治を打ち破り、正当な政治伦理を回復することを望んでいる。しかしマムダニ君はさまざまな理由から後退を続け、いまだいかなる選挙公約も実現せず、現行の法律と権限に基づいて関連する被害を軽減するための実質的な行動も取っていない。「マムダニ君はもはや国民のマムダニではなく、国家のマムダニになってしまった」という声すら生まれており、深く憂慮せざるを得ない。
+
+幼い頃の私が知るニューヨークは、「誰もが尊厳と成功を手にできる都市」であり、「あらゆる異なる人々を包容できる国土」であり、多元文化主義の模範として存在してきた都市だった。マムダニ君には、ニューヨーク市のこの誇りをしっかりと守り、マムダニ君に多大な期待を寄せるニューヨーク市民、アメリカ国民、そして世界中の人々の信頼に応えていただきたい。`
+    },
+    en: {
+      title: 'The World Is Waiting for Mamdani to Act',
+      body: `The whole world is waiting for Mamdani to respond.
+
+The state belongs to the people. The idea of the nation that people carry in their hearts comes from culture, from the land, from the bonds they form with each other—from the communities they actually live in. That's why every politician has to make a choice: are you on the side of the people, or on the side of the state machine? If you choose the state machine, then no matter how well-oiled that machine is, it has to crush the communities people actually live in to replace what they think of as their country. A politician who makes that choice deserves to be called out for it. Trans people are citizens. Their resistance—their demand for bodily sovereignty—is a direct challenge to the arbitrary control of any state machine. Diversity isn't something the state grants. It's a property of the people and the land itself. Without that understanding, politicians end up waiting for oligarchs and power brokers to have a change of heart, or for some hero to show up and save everyone. That kind of thinking causes real harm. It destroys the communities people have already built. Real democracy has to deliver equally for everyone—and that includes people who have been discriminated against and pushed down for a long time, including trans people.
+
+People across America and around the world have put a lot of hope in New York City Mayor Mamdani—his campaign platform put these policies front and centre. He's been positioned as the person to deliver real change, and expectations are high, in the US and beyond.
+
+But right now, facing pressure from Trump, Mamdani hasn't held the line. Since he took office, major medical facilities in New York have been forced to stop providing care for trans people. The interests of trans people as citizens are being stripped away openly by Trump's policies. Young people who can't grow up safely and freely, with their rights protected, don't become whole and healthy adults. These policies are ripping away the healthcare and bodily autonomy that trans youth need to grow up—and that's a flat-out rejection of popular sovereignty and democracy. Trans youth are facing real, urgent crises right now: interrupted hormone therapy, psychological collapse, suicide risk. Saying "I can't do anything" is not something a politician should ever say.
+
+Tanaka Kakuei once said: "Politics is something you have to throw yourself into completely—you have to be willing to stake your life on changing things, or you'll never live up to what people are trusting you to do." People can't fight back against the state violence of oligarchs and entrenched power on their own. That's why we need politicians who speak up for people, who fight for their interests, who work for their welfare. A politician cannot flinch in the face of people's suffering. They have to stand up against structural injustice, openly and without backing down. Politics should centre the people, not the state—the state belongs to the people, that's the basic principle of popular sovereignty. No politician should ever say yes to state violence of this kind. People are trusting Mamdani's promises and waiting for him to act. They want him to follow through on what he committed to for trans people—and from there, to actually beat Trump's theatre politics and restore some basic political integrity. Instead, Mamdani has been retreating. No campaign promise has been kept. No meaningful action has been taken under existing law and authority to reduce the harm being done. People are starting to say that Mamdani is no longer the people's Mamdani—he's become the state's Mamdani. That's a deeply troubling thing to hear.
+
+The New York I knew as a child was a city where anyone could find dignity and success, a place that could hold all kinds of different people, a city that stood for something when it came to pluralism and multiculturalism. Mamdani, please protect that. Don't let down the people of New York City, the people of America, and everyone around the world who believed in what you said you stood for.`
+    }
+  },
+
   /* ── 在此之上添加新文章 ── */
 
 ];
