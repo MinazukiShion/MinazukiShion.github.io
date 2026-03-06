@@ -11,6 +11,8 @@ const RESEARCH_TAG_LABELS = {
   politics: { zh: '政治', ja: '政治思想',       en: 'Political Thought' },
   history:  { zh: '思想史',   ja: '思想史',         en: 'Intellectual History' },
   ecology:  { zh: '生态', ja: 'エコ政治',       en: 'Ecology' },
+  theory:   { zh: '理论',     ja: '理論',           en: 'Theory' },
+
 };
 
 const RESEARCH_ARTICLES = [
@@ -119,7 +121,47 @@ Tanaka Kakuei once said: "Politics is something you have to throw yourself into 
 The New York I knew as a child was a city where anyone could find dignity and success, a place that could hold all kinds of different people, a city that stood for something when it came to pluralism and multiculturalism. Mamdani, please protect that. Don't let down the people of New York City, the people of America, and everyone around the world who believed in what you said you stood for.`
     }
   },
+{
+    id: 'multiculturalism-epistemic-sovereignty',
+    date: '2026.03',
+    tag: 'theory',
+    zh: {
+      title: '「You Westerners Should Deal with it」',
+      body: `所谓多元文化主义，我认为，应该是尽力去理解和尊重每种文明自身的文化·风土。即使没有切身的体验，也至少应该认真的倾听和理解，尊重当事人的意见，基于当事人的立场，真正设身处地的去确实的思考问题。
 
+这种尊重，我认为必须建立在确实的相信每一种文明本身的可能性，尊重每一种文明的内在，而非只承认这种文明的现象·话语，也就是文明的表象的基础上。如果只是承认「这种现象确实存在」「他的话语是有价值的」然后继续尝试强行将它纳入自己的范式，从其本质看来，可以将这样的行为理解为默认只有基于西方的历史·文化·风土才能产生现代性，于是基于「非西方的文明不能产生现代性」这种偏见，以「白人拯救世界的责任」式的傲慢，像当年的白人殖民者一样将当事人的话语纳入这个框架，作为其中的样本和对象，而非视为真正在呼吸在思考的人类。
+
+当然，这样的观点，往往被指摘为「为陋习和压迫辩护」，然而，必须承认，每个文明都存在着上流阶级和被压迫阶级，存在着主流社会和边缘社群，因此也就存在着斗争的空气，也因此存在着产生独特的现代性途径和解放性思想的可能性，这种现代化途径和解放性思想，一定是基于当事人的真正的确实的切身的生命体验和再三思考的。真正的多元文化主义，应该尊重和理解的是文明内在的这种可能性。如果为此走向了为陋习和压迫辩护，将其视为「某文明的特色」，那么恰恰可以说，是因为并没有尊重当事人的意见，而是站在自己的立场上进行专断的思考，才导致了这样的偏见。就算不能真正体验那种生活方式，我认为，也至少要有设身处地的站在当事人立场思考的意识和常识，「如果将我平移到那个社会中和当事人一致的位置上，我会怎样成长，生活，工作，思考，审美？」必须有这种基本的换位思考的概念才行。
+
+因此，我几乎不用英语写作，虽然我会说英语。我站在东亚人自己的立场上，用东亚人自己的语言写作，用东亚人的视角看待这个世界。
+
+You Westerners Should Deal with it。`
+    },
+    ja: {
+      title: '「You Westerners Should Deal with it」',
+      body: `いわゆる多元文化主義とは、あらゆる文明がそれぞれ固有の文化・風土を持つことを理解し、尊重しようと真摯に努めることだと私は考える。直接の体験がないとしても、少なくとも当事者の声に真剣に耳を傾け、理解し、当事者の意見を尊重し、当事者の立場に基づいて、真に身を置いて考えることが求められる。
+
+この尊重は、あらゆる文明それ自体の可能性を確かに信じ、その文明の内在を尊重することの上に成り立たなければならない——その文明の現象・言説、すなわち表象のみを承認するのではなく。「この現象は確かに存在する」「その言説には価値がある」と認めながらも、それを自らのパラダイムに強引に取り込もうとするならば、その本質において、それは「西洋の歴史・文化・風土に基づいてのみ近代性は生まれうる」という前提を黙認することに他ならない。「非西洋文明は近代性を生み出せない」という偏見のもと、「白人が世界を救う責任」式の傲慢さをもって、かつての白人植民者と同じように当事者の言葉をその枠組みの中に回収し、標本と対象として扱う——真に呼吸し、思考する人間としてではなく。
+
+もちろん、このような観点はしばしば「悪習や抑圧を擁護するものだ」と批判される。しかし認めなければならない——あらゆる文明には支配階級と被抑圧階級が存在し、主流社会と周縁のコミュニティが存在し、それゆえに闘争の空気が存在し、独自の近代性への道筋と解放的思想が生まれる可能性が存在する。その近代化の道筋と解放的思想は、必ず当事者の真の、確かな、切実な生の経験と、幾度も重ねられた思考の上に成り立っている。真の多元文化主義が尊重し理解すべきは、文明の内側にあるこのような可能性である。もしそのことが悪習や抑圧の擁護へと向かうなら、それを「ある文明の特色」として片付けるなら、それはまさに当事者の意見を尊重せず、自らの立場から専断的に思考した結果だと言える。その生き方を真に体験できないとしても、少なくとも当事者の立場に身を置いて考える意識と常識は持たなければならない——「もし私がその社会の中で当事者と同じ位置に置かれたなら、どのように育ち、生き、働き、考え、何を美しいと感じるだろうか？」この基本的な想像力がなければならない。
+
+それゆえ私はほとんど英語で書かない——英語を話せるにもかかわらず。私は東アジア人自身の立場から、東アジア人自身の言葉で書き、東アジア人の視点でこの世界を見る。
+
+You Westerners Should Deal with it.`
+    },
+    en: {
+      title: '"You Westerners Should Deal with it"',
+      body: `Multiculturalism, as I understand it, means genuinely trying to understand and respect the culture and conditions of every civilisation on its own terms. Even without direct experience, the minimum requirement is to listen seriously, to understand, to respect the views of those involved, and to think from their position—not abstractly, but concretely, with real effort.
+
+That respect has to be grounded in actually believing in the possibilities inherent to each civilisation, and respecting what lies within it—not merely acknowledging its surface phenomena and discourse, its appearances. To say "this phenomenon exists" and "this discourse has value" while continuing to force it into your own paradigm is, at its core, to tacitly accept that modernity can only be produced from Western history, culture, and conditions. It is to operate under the prejudice that non-Western civilisations cannot generate modernity on their own—and from that prejudice, with the arrogance of a "white saviour" complex, to absorb the words of those involved into your framework just as the old colonisers did, treating them as specimens and objects rather than as human beings who breathe and think.
+
+This kind of position is often accused of defending harmful customs and oppression. But one has to acknowledge: every civilisation contains a ruling class and an oppressed class, a mainstream society and marginalised communities, and therefore an atmosphere of struggle—and therefore the possibility of producing its own distinct path toward modernity and its own emancipatory thought. That path, that thought, will always be grounded in the genuine, concrete, lived experience of those involved, and in thinking that has been done and redone many times over. What true multiculturalism should respect and seek to understand is precisely this internal possibility within civilisations. If that leads someone toward defending harmful customs and oppression, treating them as "the characteristics of a certain civilisation"—that is itself the result of not respecting the views of those involved, of thinking from one's own position with no regard for theirs. Even if you cannot truly live that way of life, you need at minimum the basic imaginative capacity to think from the position of those involved: "If I were placed in that society, in the same position as those people, how would I grow up, live, work, think, and find beauty in the world?" That basic capacity for perspective-taking is not optional.
+
+This is why I almost never write in English, even though I speak it. I write from the position of East Asians ourselves, in the languages of East Asia, seeing the world through an East Asian lens.
+
+You Westerners Should Deal with it.`
+    }
+  },
   /* ── 在此之上添加新文章 ── */
 
 ];
